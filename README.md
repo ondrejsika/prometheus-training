@@ -32,7 +32,11 @@ Write me mail to <ondrej@sika.io>
 
 ## Install Prometheus Locally
 
-TODO
+### Mac
+
+```
+brew install prometheus
+```
 
 <!-- END Install -->
 
