@@ -42,7 +42,17 @@ brew install prometheus
 
 ## Course
 
-TODO
+### Test Prometheus with Simple Config
+
+Run
+
+```
+prometheus --config.file=01_prometheus.yml
+```
+
+See <http://127.0.0.1:9090>
+
+![](images/prometheus-default-view.png)
 
 ## Thank you & Questions
 
