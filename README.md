@@ -54,6 +54,22 @@ See <http://127.0.0.1:9090>
 
 ![](images/prometheus-default-view.png)
 
+### Run Random Metrics Generator
+
+Run in Docker (see [source](docker/random-metrics))
+
+```
+docker run --name random8080 -d -p 8080:8080 ondrejsika/random-metrics
+docker run --name random8081 -d -p 8081:8080 ondrejsika/random-metrics
+docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
+```
+
+Run Prometheus with those sample targets
+
+```
+prometheus --config.file=02_prometheus.yml
+```
+
 ## Thank you & Questions
 
 ### Ondrej Sika

@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: 'example-random'
+    static_configs:
+      - targets: ['localhost:8080', 'localhost:8081']
+        labels:
+          group: 'production'
+      - targets: ['localhost:8082']
+        labels:
+          group: 'canary'
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 'localhost:9093'
