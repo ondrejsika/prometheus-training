@@ -42,6 +42,15 @@ brew install prometheus
 
 ## Course
 
+## What is Prometheus
+
+### Prometheus vs Others
+
+TODO
+
+More at https://prometheus.io/docs/introduction/comparison/
+
+
 ### Test Prometheus with Simple Config
 
 Run
@@ -110,3 +119,8 @@ See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=avg(rate(rpc_duration
 - linkedin:	[/in/ondrejsika/](https://linkedin.com/in/ondrejsika/)
 
 _Do you like the course? Write me recommendation on Twitter (with handle `@ondrejsika`) and LinkedIn. Thanks._
+
+
+## Resources
+
+- Prometheus vs Others - https://prometheus.io/docs/introduction/comparison/
