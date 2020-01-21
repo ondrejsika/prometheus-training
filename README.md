@@ -14,19 +14,35 @@ Source of my Prometheus Training
 - [Proetheus Training in Czech Republic](https://ondrej-sika.cz/skoleni/prometheus?_s=gh-prometheus-training)
 - [Proetheus Training in Europe & Middle East](https://ondrej-sika.com/training/prometheus?_s=gh-prometheus-training)
 
-### Related Courses
-
-- Kubernetes Training - [ondrejsika/kubernetes-training](https://github.com/ondrejsika/kubernetes-training) (on Github)
-
-
-### Slides
-
-<https://sika.link/prom-slides> TODO
-
 
 ### Any Questions?
 
 Write me mail to <ondrej@sika.io>
+
+
+### Related Courses
+
+- Kubernetes Training - [ondrejsika/kubernetes-training](https://github.com/ondrejsika/kubernetes-training) (on Github)
+
+## About Me - Ondrej Sika
+
+**DevOps Engineer, Consultant & Lecturer**
+
+Git, Gitlab, Gitlab CI, Docker, Kubernetes, Terraform, Prometheus, ELK / EFK
+
+## Star, Create Issues, Fork, and Contribute
+
+Feel free to star this repository or fork it.
+
+If you found bug, create issue or pull request.
+
+Also feel free to propose improvements by creating issues.
+
+## Live Chat
+
+For sharing links & "secrets".
+
+<https://tlk.io/sika-prometheus>
 
 <!-- BEGIN Install -->
 
@@ -49,7 +65,6 @@ brew install prometheus
 TODO
 
 More at https://prometheus.io/docs/introduction/comparison/
-
 
 ### Test Prometheus with Simple Config
 
@@ -89,7 +104,6 @@ rpc_durations_seconds_count
 
 See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=rpc_durations_seconds_count&g0.tab=0>
 
-
 ```
 rate(rpc_durations_seconds_count[5m])
 ```
@@ -108,18 +122,20 @@ avg(rate(rpc_durations_seconds_count[5m])) by (job, service)
 
 See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=avg(rate(rpc_durations_seconds_count%5B5m%5D))%20by%20(job%2C%20service)&g0.tab=0>
 
+## Thank you! & Questions?
 
-## Thank you & Questions
+That's it. Do you have any questions? **Let's go for a beer!**
 
 ### Ondrej Sika
 
-- email:	<ondrej@sika.io>
-- web:	[sika.io](https://which.sika.io)
-- twitter: 	[@ondrejsika](https://twitter.com/ondrejsika)
-- linkedin:	[/in/ondrejsika/](https://linkedin.com/in/ondrejsika/)
+- email: <ondrej@sika.io>
+- web: <https://sika.io>
+- twitter: [@ondrejsika](https://twitter.com/ondrejsika)
+- linkedin: [/in/ondrejsika/](https://linkedin.com/in/ondrejsika/)
 
-_Do you like the course? Write me recommendation on Twitter (with handle `@ondrejsika`) and LinkedIn. Thanks._
+_Do you like the course? Write me recommendation on Twitter (with handle `@ondrejsika`) and LinkedIn (add me [/in/ondrejsika](https://www.linkedin.com/in/ondrejsika/) and I'll send you request for recommendation). **Thanks**._
 
+Wanna to go for a beer or do some work together? Just [book me](book-me.sika.io) :)
 
 ## Resources
 
