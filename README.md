@@ -58,6 +58,26 @@ brew install prometheus
 
 ## Course
 
+## Agenda
+
+- Prometheus
+  - Intro
+  - Install Prometheus
+  - Basic configuration
+  - Scraping & Exporters
+  - Push Gateway
+  - PromQL
+  - Alerting
+- Alert Manager
+  - Install Alert Manager
+  - Routes
+  - Receivers
+- Grafana
+  - Instal Grafana
+  - Working with dashboards
+  - Prometheus integration
+
+
 ## What is Prometheus
 
 ### Prometheus vs Others
