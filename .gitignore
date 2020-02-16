@@ -1,3 +1,10 @@
 .DS_Store
 data
 
+# Terraform
+.terraform
+terraform.tfvars
+*.tfstate
+*.tfstate*backup
+*.log
+.terraform.tfstate.lock.info
