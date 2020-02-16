@@ -182,6 +182,25 @@ avg(rate(rpc_durations_seconds_count[5m])) by (job, service)
 
 See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=avg(rate(rpc_durations_seconds_count%5B5m%5D))%20by%20(job%2C%20service)&g0.tab=0>
 
+## Prometeheus Exporters
+
+### What are Prometeheus Exporters?
+
+There are a number of libraries and servers which help in exporting existing metrics from third-party systems as Prometheus metrics. This is useful for cases where it is not feasible to instrument a given system with Prometheus metrics directly (for example, HAProxy or Linux system stats).
+
+#### Popular exporters:
+
+- Node Exporter (official) - <https://github.com/prometheus/node_exporter>
+- Blackbox Exporter (official) - <https://github.com/prometheus/blackbox_exporter>
+- cAdvisor (Docker) - <https://github.com/google/cadvisor>
+- Kube State Metrics - <https://github.com/kubernetes/kube-state-metrics>
+- MySQL Exporter (official) - <https://github.com/prometheus/mysqld_exporter>
+- Postgres Exporter - <https://github.com/wrouesnel/postgres_exporter>
+
+All exporters are on Prometheus website: <https://prometheus.io/docs/instrumenting/exporters/>
+Defult ports of exporters: <https://github.com/prometheus/prometheus/wiki/Default-port-allocations>
+
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
