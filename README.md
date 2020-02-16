@@ -96,6 +96,34 @@ Prometheus is an open-source systems monitoring and alerting toolkit originally 
 
 ![Prometheus Architecture](images/prometheus-architecture.png)
 
+### Metric Types
+
+- Counter
+- Gauge
+- Histogram
+- Summary
+
+#### Counter
+
+A counter is a cumulative metric that represents a single monotonically increasing counter whose value can only increase or be reset to zero on restart. For example, you can use a counter to represent the number of requests served, tasks completed, or errors.
+
+#### Gauge
+
+A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
+
+Gauges are typically used for measured values like temperatures or current memory usage, but also "counts" that can go up and down, like the number of concurrent requests.
+
+#### Histogram
+
+A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+
+A histogram with a base metric name of `<basename>` exposes multiple time series during a scrape:
+
+- cumulative counters for the observation buckets, exposed as `<basename>_bucket{le="<upper inclusive bound>"}`
+- the total sum of all observed values, exposed as `<basename>_sum`
+- the count of events that have been observed, exposed as `<basename>_count (identical to <basename>_bucket{le="+Inf"}` above)
+
+
 ## Run Prometheus
 
 ### Test Prometheus with Simple Config
