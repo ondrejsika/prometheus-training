@@ -200,6 +200,51 @@ There are a number of libraries and servers which help in exporting existing met
 All exporters are on Prometheus website: <https://prometheus.io/docs/instrumenting/exporters/>
 Defult ports of exporters: <https://github.com/prometheus/prometheus/wiki/Default-port-allocations>
 
+### Node Exporter
+
+[source](https://github.com/prometheus/node_exporter)
+
+Install on host using Docker:
+
+```
+docker run --name node-exporter -d --net=host --pid=host -v /:/host:ro,rslave quay.io/prometheus/node-exporter --path.rootfs=/host
+```
+
+See: <http://example.sikademo.com:9100/metrics>
+
+### Blackbox Exporter
+
+[source](https://github.com/prometheus/blackbox_exporter)
+
+Install on host using Docker:
+
+```
+docker run --rm -d -p 9115:9115 --name blackbox_exporter prom/blackbox-exporter:master
+```
+
+See: <http://example.sikademo.com:9115/metrics>
+
+Check status code 200 on website:
+
+- sika.io: <http://http://example.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
+- foo.int (not working): <http://http://example.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
+
+
+### cAdvisor
+
+[source](https://github.com/google/cadvisor)
+
+Install on host using Docker:
+
+```
+docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/dev/disk/:/dev/disk:ro --publish=9338:9338 --detach=true --name=cadvisor gcr.io/google-containers/cadvisor:latest --port=9338
+```
+
+See:
+
+- Metrics: <http://example.sikademo.com:9338/metrics>
+- Dashboar: <http://example.sikademo.com:9338/>
+
 
 ## Thank you! & Questions?
 
