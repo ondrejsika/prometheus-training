@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: pushgateway
+    static_configs:
+      - targets:
+          - example.sikademo.com:9091
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - "localhost:9093"
+
+rule_files:
+  - "04_prometheus.rules.yml"

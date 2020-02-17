@@ -1,0 +1,44 @@
+global:
+  resolve_timeout: 10s
+  smtp_from: monitoring@example.com
+  smtp_smarthost: localhost:1025
+  smtp_require_tls: false
+
+route:
+  receiver: all-teams
+  group_by:
+    - env
+    - alertname
+    - app
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 10m
+
+  routes:
+    - receiver: 'frontend-team'
+      match:
+        app: frontend
+    - receiver: 'backend-team'
+      match:
+        app: backend
+    - receiver: 'db-team'
+      match:
+        app: db
+
+receivers:
+  - name: all-teams
+    email_configs:
+      - send_resolved: true
+        to: alert@example.com
+  - name: frontend-team
+    email_configs:
+      - send_resolved: true
+        to: alert-frontend@example.com
+  - name: backend-team
+    email_configs:
+      - send_resolved: true
+        to: alert-backend@example.com
+  - name: db-team
+    email_configs:
+      - send_resolved: true
+        to: alert-db@example.com

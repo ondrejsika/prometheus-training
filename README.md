@@ -339,6 +339,45 @@ See Alerts, Alertmanager and Emaildev. Start them and check again:
 docker start random8080 random8081 random8082
 ```
 
+### Multiple Receivers Example
+
+Use `./set-probe_success.sh` script to set everything up
+
+```
+./set-probe_success.sh frontend 1
+./set-probe_success.sh backend 1
+./set-probe_success.sh db 1
+./set-probe_success.sh lb 1
+```
+
+Run Prometheus & Alertmanager:
+
+```
+prometheus --config.file=04_prometheus.yml
+```
+
+```
+alertmanager --config.file 04_alertmanager.yml
+```
+
+Check Alerts & Alert Manager.
+
+Fire some errors:
+
+```
+./set-probe_success.sh db 0
+./set-probe_success.sh lb 0
+```
+
+Check Alerts, Alert Manager & MailDev.
+
+Fix DB & LB and see Alerts, Alert Manager & MailDev again.
+
+```
+./set-probe_success.sh db 1
+./set-probe_success.sh lb 1
+```
+
 
 ## Thank you! & Questions?
 
