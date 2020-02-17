@@ -360,6 +360,8 @@ prometheus --config.file=04_prometheus.yml
 alertmanager --config.file 04_alertmanager.yml
 ```
 
+You can debug routes here: <https://prometheus.io/webtools/alerting/routing-tree-editor/>
+
 Check Alerts & Alert Manager.
 
 Fire some errors:
