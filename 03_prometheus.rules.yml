@@ -1,0 +1,11 @@
+groups:
+- name: up
+  rules:
+  - alert: Up
+    expr: up == 0
+    for: 10s
+    labels:
+      level: medium
+    annotations:
+      summary: "Prometheus job {{ $labels.job }} with {{ $labels.instance }} instance is down"
+      description: "Job {{ $labels.job }} with {{ $labels.instance }} instance has been down for more than 10 seconds."

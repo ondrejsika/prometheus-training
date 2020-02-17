@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets:
+          - "localhost:9090"
+
+  - job_name: "example-random"
+    static_configs:
+      - targets:
+          - "localhost:8080"
+          - "localhost:8081"
+        labels:
+          env: "prod"
+      - targets:
+          - "localhost:8082"
+        labels:
+          env: "dev"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - "localhost:9093"
+
+rule_files:
+  - "03_prometheus.rules.yml"

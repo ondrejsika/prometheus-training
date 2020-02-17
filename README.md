@@ -288,6 +288,58 @@ curl -X DELETE http://example.sikademo.com:9091/metrics/job/some_job
 curl -X DELETE http://example.sikademo.com:9091/metrics/job/some_job/instance/some_instance
 ```
 
+## Alertmanager
+
+### Maildev
+
+Run [maildev](https://github.com/maildev/maildev) on localhost:
+
+```
+docker run --name maildev -d -p 1080:80 -p 1025:25 djfarrelly/maildev
+```
+
+See: <http://localhost:1080>
+
+
+### Run Alertmanager Example
+
+Run Random Metrics:
+
+```
+docker run --name random8080 -d -p 8080:8080 ondrejsika/random-metrics
+docker run --name random8081 -d -p 8081:8080 ondrejsika/random-metrics
+docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
+```
+
+Run Prometheus with rules configuration
+
+```
+prometheus --config.file=03_prometheus.yml
+```
+
+See: <http://localhost:9090/alerts>
+
+and in other tab run Alertmanager
+
+```
+alertmanager --config.file 03_alertmanager.yml
+```
+
+See: <http://localhost:9093>
+
+Stop random metrics:
+
+```
+docker stop random8080 random8081 random8082
+```
+
+See Alerts, Alertmanager and Emaildev. Start them and check again:
+
+```
+docker start random8080 random8081 random8082
+```
+
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
