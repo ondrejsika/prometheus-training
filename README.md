@@ -245,6 +245,48 @@ See:
 - Metrics: <http://example.sikademo.com:9338/metrics>
 - Dashboar: <http://example.sikademo.com:9338/>
 
+## Push Gateway
+
+Install Push Gateway using Docker:
+
+```
+docker run --name push-gateway -d -p 9091:9091 prom/pushgateway
+```
+
+See:
+
+- Web UI: <http://example.sikademo.com:9091/>
+- Metrics: <http://example.sikademo.com:9091/metrics>
+
+### Examples
+
+Push with label `{job="some_job"}`
+
+```
+echo "demo 3.14" | curl --data-binary @- http://example.sikademo.com:9091/metrics/job/some_job
+```
+
+Push with label `{job="other_job",instance="some_instance"}`
+
+```
+cat <<EOF | curl --data-binary @- http://example.sikademo.com:9091/metrics/job/some_job/instance/some_instance
+# TYPE some_metric counter
+some_metric{label="val1"} 42
+# TYPE another_metric gauge
+# HELP another_metric Just an example.
+another_metric 2398.283
+EOF
+```
+
+Delete metrics from Push Gateway:
+
+```
+curl -X DELETE http://example.sikademo.com:9091/metrics/job/some_job
+```
+
+```
+curl -X DELETE http://example.sikademo.com:9091/metrics/job/some_job/instance/some_instance
+```
 
 ## Thank you! & Questions?
 
