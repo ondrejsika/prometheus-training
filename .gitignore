@@ -1,6 +1,9 @@
 .DS_Store
 data
 
+# Private notes
+private.txt
+
 # Terraform
 .terraform
 terraform.tfvars
