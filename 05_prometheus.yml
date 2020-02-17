@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "node"
+    static_configs:
+      - targets:
+          - "example.sikademo.com:9100"
+
+rule_files:
+  - "05_prometheus.rules.yml"

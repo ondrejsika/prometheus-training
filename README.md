@@ -289,6 +289,12 @@ Network transmit in kbps
 sum(rate(node_network_transmit_bytes_total[1m])) by (instance) / 1024
 ```
 
+### Saved Queries
+
+```
+prometheus --config.file=05_prometheus.yml
+```
+
 
 ## Push Gateway
 
