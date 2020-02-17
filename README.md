@@ -156,32 +156,6 @@ prometheus --config.file=02_prometheus.yml
 
 See <http://127.0.0.1:9090>
 
-### Simple Queries
-
-```
-rpc_durations_seconds_count
-```
-
-See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=rpc_durations_seconds_count&g0.tab=0>
-
-```
-rate(rpc_durations_seconds_count[5m])
-```
-
-See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=rate(rpc_durations_seconds_count%5B5m%5D)&g0.tab=0>
-
-```
-avg(rate(rpc_durations_seconds_count[5m]))
-```
-
-See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=avg(rate(rpc_durations_seconds_count%5B5m%5D))&g0.tab=0>
-
-```
-avg(rate(rpc_durations_seconds_count[5m])) by (job, service)
-```
-
-See <http://localhost:9090/graph?g0.range_input=1h&g0.expr=avg(rate(rpc_durations_seconds_count%5B5m%5D))%20by%20(job%2C%20service)&g0.tab=0>
-
 ## Prometeheus Exporters
 
 ### What are Prometeheus Exporters?
