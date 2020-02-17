@@ -226,8 +226,8 @@ See: <http://example.sikademo.com:9115/metrics>
 
 Check status code 200 on website:
 
-- sika.io: <http://http://example.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
-- foo.int (not working): <http://http://example.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
+- sika.io: <http://example.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
+- foo.int (not working): <http://example.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
 
 
 ### cAdvisor
