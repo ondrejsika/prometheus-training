@@ -3,9 +3,9 @@ groups:
   rules:
   - alert: up
     expr: probe_success{exported_instance="demo",exported_job="demo"} == 0
-    for: 10s
+    for: 20s
     labels:
       level: critical
     annotations:
       summary: "{{ $labels.app }} is down"
-      description: "{{ $labels.app }} has been down for more than 10 seconds."
+      description: "{{ $labels.app }} has been down for more than 20 seconds."
