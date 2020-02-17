@@ -219,6 +219,77 @@ See:
 - Metrics: <http://example.sikademo.com:9338/metrics>
 - Dashboar: <http://example.sikademo.com:9338/>
 
+## PromQL
+
+Select time series
+
+```
+node_network_receive_bytes_total
+```
+
+Select time series by label
+
+```
+node_network_receive_bytes_total{device="eth0"}
+```
+
+```
+node_network_receive_bytes_total{device!="lo"}
+```
+
+Regular Expressions
+
+```
+node_network_receive_bytes_total{device=~"eth.+"}
+```
+
+```
+node_network_receive_bytes_total{device!~"eth.+"}
+```
+
+```
+node_network_receive_bytes_total{device=~"eth0|lo"}
+```
+
+Offset
+
+```
+node_network_receive_bytes_total offset 1h
+```
+
+Rates
+
+```
+rate(node_network_receive_bytes_total[5m])
+```
+
+### Examples
+
+CPU usage in percent
+
+```
+100 * (1 - avg(rate(node_cpu_seconds_total{mode="idle"}[1m]))  by (instance))
+```
+
+Memory usage in percent
+
+```
+100 * (node_memory_Active_bytes / on (instance) node_memory_MemTotal_bytes)
+```
+
+Disk Usage in Percent
+
+```
+100 * (node_filesystem_avail_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"})
+```
+
+Network transmit in kbps
+
+```
+sum(rate(node_network_transmit_bytes_total[1m])) by (instance) / 1024
+```
+
+
 ## Push Gateway
 
 Install Push Gateway using Docker:
