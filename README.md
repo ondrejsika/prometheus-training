@@ -441,9 +441,14 @@ My favourite dashboards:
 
 - Node Exporter - `405` - https://grafana.com/grafana/dashboards/405
 - Node Exporter - `11074` - https://grafana.com/grafana/dashboards/11074
-- Kubernetes - `7249` - https://grafana.com/grafana/dashboards/7249
 - Mysql - `6239` - https://grafana.com/grafana/dashboards/6239
 - Traefik - `5851` - https://grafana.com/grafana/dashboards/5851
+
+Kubernetes
+
+- K8 Cluster Detail Dashboard - `10856` - https://grafana.com/grafana/dashboards/10856
+- 10 Project/NameSpace Based on Memory - `10551` - https://grafana.com/grafana/dashboards/10551
+- Cluster Monitoring for Kubernetes - `10000` - https://grafana.com/grafana/dashboards/10000
 
 ## Thank you! & Questions?
 
