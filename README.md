@@ -443,6 +443,7 @@ My favourite dashboards:
 - Node Exporter - `11074` - https://grafana.com/grafana/dashboards/11074
 - Mysql - `6239` - https://grafana.com/grafana/dashboards/6239
 - Traefik - `5851` - https://grafana.com/grafana/dashboards/5851
+- Proxmox - `10347` - https://grafana.com/grafana/dashboards/10347
 
 Kubernetes
 
