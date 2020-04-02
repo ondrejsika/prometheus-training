@@ -286,7 +286,7 @@ Disk Usage in Percent
 Network transmit in kbps
 
 ```
-sum(rate(node_network_transmit_bytes_total[1m])) by (instance) / 1024
+sum(rate(node_network_transmit_bytes_total{device=~"eth.*|enp.*"}[10m])) by (instance)
 ```
 
 ### Saved Queries
