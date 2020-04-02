@@ -441,6 +441,7 @@ My favourite dashboards:
 
 - Node Exporter - `405` - https://grafana.com/grafana/dashboards/405
 - Node Exporter - `11074` - https://grafana.com/grafana/dashboards/11074
+- Postgres - `455` - https://grafana.com/grafana/dashboards/455
 - Mysql - `6239` - https://grafana.com/grafana/dashboards/6239
 - Traefik - `5851` - https://grafana.com/grafana/dashboards/5851
 - Proxmox - `10347` - https://grafana.com/grafana/dashboards/10347
