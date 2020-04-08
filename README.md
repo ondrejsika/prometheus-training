@@ -445,6 +445,7 @@ My favourite dashboards:
 - Mysql - `6239` - https://grafana.com/grafana/dashboards/6239
 - Traefik - `5851` - https://grafana.com/grafana/dashboards/5851
 - Proxmox - `10347` - https://grafana.com/grafana/dashboards/10347
+- Consul - `10642` - https://grafana.com/grafana/dashboards/10642
 
 Kubernetes
 
