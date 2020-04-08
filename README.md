@@ -295,6 +295,14 @@ sum(rate(node_network_transmit_bytes_total{device=~"eth.*|enp.*"}[10m])) by (ins
 prometheus --config.file=05_prometheus.yml
 ```
 
+## Service Discovery
+
+### Service Discovery using Consul
+
+```
+prometheus --config.file=06_prometheus.yml
+```
+
 
 ## Push Gateway
 
