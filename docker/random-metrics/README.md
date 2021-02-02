@@ -1,19 +1,23 @@
 Build
 
 ```
-docker build -t ondrejsika/random-metrics .
+make build
 ```
 
 Push
 
 ```
-docker push ondrejsika/random-metrics
+make push
 ```
 
 Run
 
 ```
-docker run --name random8080 -d -p 8080:8080 ondrejsika/random-metrics
-docker run --name random8081 -d -p 8081:8080 ondrejsika/random-metrics
-docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
+make run
+```
+
+Stop
+
+```
+make stop
 ```
