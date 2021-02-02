@@ -12,4 +12,4 @@ terraform.tfvars
 *.log
 .terraform.tfstate.lock.info
 
-prometheus.yml
+/prometheus.yml
