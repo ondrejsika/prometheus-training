@@ -52,6 +52,15 @@ resource "cloudflare_record" "droplet" {
   proxied = false
 }
 
+resource "cloudflare_record" "droplet_all" {
+  count = var.vm_count
+
+  domain = "sikademo.com"
+  name   = "prom-all"
+  value  = digitalocean_droplet.droplet[count.index].ipv4_address
+  type   = "A"
+  proxied = false
+}
 
 resource "cloudflare_record" "droplet_wildcard" {
   count = var.vm_count
