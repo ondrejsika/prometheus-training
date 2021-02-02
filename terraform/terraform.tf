@@ -2,40 +2,63 @@ variable "digitalocean_token" {}
 variable "cloudflare_email" {}
 variable "cloudflare_token" {}
 
+variable "vm_count" {
+  default = 1
+}
+
 provider "digitalocean" {
   token = var.digitalocean_token
 }
 
 provider "cloudflare" {
+  version = "~> 1.0"
   email = var.cloudflare_email
-  api_key = var.cloudflare_token
+  token = var.cloudflare_token
 }
 
 data "digitalocean_ssh_key" "ondrejsika" {
   name = "ondrejsika"
 }
 
-data "cloudflare_zones" "demo" {
-  filter {
-    name = "sikademo.com"
-  }
-}
+resource "digitalocean_droplet" "droplet" {
+  count = var.vm_count
 
-resource "digitalocean_droplet" "example" {
-  # List DigitalOcean's public images: `doctl compute image list --public`
   image  = "docker-18-04"
-  name = "example"
+  name   = "prom${count.index}"
   region = "fra1"
-  size   = "s-1vcpu-1gb"
+  size   = "s-1vcpu-2gb"
   ssh_keys = [
     data.digitalocean_ssh_key.ondrejsika.id
   ]
+  user_data = <<-EOF
+  #cloud-config
+  ssh_pwauth: yes
+  password: asdfasdf2021
+  chpasswd:
+    expire: false
+  runcmd:
+    - ufw disable
+    - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
+  EOF
 }
 
-resource "cloudflare_record" "example" {
-  zone_id = lookup(data.cloudflare_zones.demo.zones[0], "id")
-  name    = "example"
-  value   = digitalocean_droplet.example.ipv4_address
-  type    = "A"
+resource "cloudflare_record" "droplet" {
+  count = var.vm_count
+
+  domain = "sikademo.com"
+  name   = "prom${count.index}"
+  value  = digitalocean_droplet.droplet[count.index].ipv4_address
+  type   = "A"
+  proxied = false
+}
+
+
+resource "cloudflare_record" "droplet_wildcard" {
+  count = var.vm_count
+
+  domain = "sikademo.com"
+  name   = "*.prom${count.index}"
+  value  = cloudflare_record.droplet[count.index].hostname
+  type   = "CNAME"
   proxied = false
 }
