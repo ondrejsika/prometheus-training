@@ -145,9 +145,9 @@ See <http://127.0.0.1:9090>
 Run in Docker (see [source](docker/random-metrics))
 
 ```
-docker run --name random8080 -d -p 8080:8080 ondrejsika/random-metrics
-docker run --name random8081 -d -p 8081:8080 ondrejsika/random-metrics
-docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
+docker run --name random8080 -d -p 8080:80 ondrejsika/random-metrics
+docker run --name random8081 -d -p 8081:80 ondrejsika/random-metrics
+docker run --name random8082 -d -p 8082:80 ondrejsika/random-metrics
 ```
 
 Run Prometheus with those sample targets
@@ -376,9 +376,9 @@ We'll use [maildev](https://github.com/maildev/maildev) on [maildev.sikademo.com
 Run Random Metrics:
 
 ```
-docker run --name random8080 -d -p 8080:8080 ondrejsika/random-metrics
-docker run --name random8081 -d -p 8081:8080 ondrejsika/random-metrics
-docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
+docker run --name random8080 -d -p 8080:80 ondrejsika/random-metrics
+docker run --name random8081 -d -p 8081:80 ondrejsika/random-metrics
+docker run --name random8082 -d -p 8082:80 ondrejsika/random-metrics
 ```
 
 Run Prometheus with rules configuration
