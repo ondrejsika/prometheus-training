@@ -228,6 +228,10 @@ See:
 
 ## PromQL
 
+- http://prom.sikademo.com:9090/
+- http://prom.sikademo.com:9090/targets
+- http://prom.sikademo.com:9090/graph?g0.expr=node_load1&g0.tab=0&g0.stacked=0&g0.range_input=1h
+
 Select time series
 
 ```
