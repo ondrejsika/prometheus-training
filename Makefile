@@ -1,0 +1,2 @@
+cleanup:
+	rm -rf data
