@@ -5,5 +5,5 @@ services:
     network_mode: host
   ab:
     image: ondrejsika/ab
-    command: ab -n 10000000 -c ${CONCURENCY:-1} http://127.0.0.1${PATH:-/}
+    command: ab -n 10000000 -c ${CONCURENCY:-1} http://127.0.0.1${SUFFIX:-/}
     network_mode: host
