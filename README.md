@@ -345,13 +345,7 @@ curl -X DELETE http://example.sikademo.com:9091/metrics/job/some_job/instance/so
 
 ### Maildev
 
-Run [maildev](https://github.com/maildev/maildev) on localhost:
-
-```
-docker run --name maildev -d -p 1080:80 -p 1025:25 djfarrelly/maildev
-```
-
-See: <http://localhost:1080>
+We'll use [maildev](https://github.com/maildev/maildev) on [maildev.sikademo.com](https://maildev.sikademo.com)
 
 ### Run Alertmanager Example
 

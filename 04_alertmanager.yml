@@ -1,7 +1,7 @@
 global:
   resolve_timeout: 10s
   smtp_from: prom@example.com
-  smtp_smarthost: localhost:1025
+  smtp_smarthost: maildev.sikademo.com:25
   smtp_require_tls: false
 
 route:

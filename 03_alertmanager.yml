@@ -8,7 +8,7 @@ global:
   # smtp_auth_identity: prom-demo@sikamail.eu
   # smtp_require_tls: true
   smtp_from: monitoring@example.com
-  smtp_smarthost: localhost:1025
+  smtp_smarthost: maildev.sikademo.com:25
   smtp_require_tls: false
 
 route:

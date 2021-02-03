@@ -5,7 +5,7 @@ scrape_configs:
   - job_name: pushgateway
     static_configs:
       - targets:
-          - example.sikademo.com:9091
+          - prom0.sikademo.com:9091
 
 alerting:
   alertmanagers:
