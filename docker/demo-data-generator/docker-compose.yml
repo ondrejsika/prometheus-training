@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  example-server-with-metrics:
+    image: ondrejsika/example-server-with-metrics
+    network_mode: host
+  ab:
+    image: ondrejsika/ab
+    command: ab -n 10000000 -c ${CONCURENCY:-1} http://127.0.0.1${PATH:-/}
+    network_mode: host
