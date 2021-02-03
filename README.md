@@ -14,11 +14,9 @@ Source of my Prometheus Training
 - [Proetheus Training in Czech Republic](https://ondrej-sika.cz/skoleni/prometheus?_s=gh-prometheus-training)
 - [Proetheus Training in Europe & Middle East](https://ondrej-sika.com/training/prometheus?_s=gh-prometheus-training)
 
-
 ### Any Questions?
 
 Write me mail to <ondrej@sika.io>
-
 
 ### Related Courses
 
@@ -77,7 +75,6 @@ brew install prometheus
   - Working with dashboards
   - Prometheus integration
 
-
 ## What is Prometheus?
 
 Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community. It is now a standalone open source project and maintained independently of any company. To emphasize this, and to clarify the project's governance structure, Prometheus joined the Cloud Native Computing Foundation in 2016 as the second hosted project, after Kubernetes. -- [Prometheus website](https://prometheus.io/docs/introduction/overview/#what-is-prometheus)
@@ -122,7 +119,6 @@ A histogram with a base metric name of `<basename>` exposes multiple time series
 - cumulative counters for the observation buckets, exposed as `<basename>_bucket{le="<upper inclusive bound>"}`
 - the total sum of all observed values, exposed as `<basename>_sum`
 - the count of events that have been observed, exposed as `<basename>_count (identical to <basename>_bucket{le="+Inf"}` above)
-
 
 ## Run Prometheus
 
@@ -202,7 +198,6 @@ Check status code 200 on website:
 
 - sika.io: <http://example.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
 - foo.int (not working): <http://example.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
-
 
 ### cAdvisor
 
@@ -303,7 +298,6 @@ prometheus --config.file=05_prometheus.yml
 prometheus --config.file=06_prometheus.yml
 ```
 
-
 ## Push Gateway
 
 Install Push Gateway using Docker:
@@ -358,7 +352,6 @@ docker run --name maildev -d -p 1080:80 -p 1025:25 djfarrelly/maildev
 ```
 
 See: <http://localhost:1080>
-
 
 ### Run Alertmanager Example
 
@@ -470,10 +463,10 @@ That's it. Do you have any questions? **Let's go for a beer!**
 - email: <ondrej@sika.io>
 - web: <https://sika.io>
 - twitter: [@ondrejsika](https://twitter.com/ondrejsika)
-- linkedin:	[/in/ondrejsika/](https://linkedin.com/in/ondrejsika/)
+- linkedin: [/in/ondrejsika/](https://linkedin.com/in/ondrejsika/)
 - Newsletter, Slack, Facebook & Linkedin Groups: <https://join.sika.io>
 
-_Do you like the course? Write me recommendation on Twitter (with handle `@ondrejsika`) and LinkedIn (add me [/in/ondrejsika](https://www.linkedin.com/in/ondrejsika/) and I'll send you request for recommendation). __Thanks__._
+_Do you like the course? Write me recommendation on Twitter (with handle `@ondrejsika`) and LinkedIn (add me [/in/ondrejsika](https://www.linkedin.com/in/ondrejsika/) and I'll send you request for recommendation). **Thanks**._
 
 Wanna to go for a beer or do some work together? Just [book me](https://book-me.sika.io) :)
 
