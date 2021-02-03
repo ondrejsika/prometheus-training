@@ -26,4 +26,4 @@ alerting:
             - "localhost:9093"
 
 rule_files:
-  - "03_prometheus.rules.yml"
+  - "prom-alert.rules.yml"

@@ -8,4 +8,4 @@ scrape_configs:
           - "example.sikademo.com:9100"
 
 rule_files:
-  - "05_prometheus.rules.yml"
+  - "prom-queries.rules.yml"

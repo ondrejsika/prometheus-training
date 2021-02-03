@@ -127,7 +127,13 @@ A histogram with a base metric name of `<basename>` exposes multiple time series
 Run
 
 ```
-prometheus --config.file=01_prometheus.yml
+prometheus --config.file=prom-self-monitor.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-self-monitor.yml
 ```
 
 See <http://127.0.0.1:9090>
@@ -147,7 +153,13 @@ docker run --name random8082 -d -p 8082:8080 ondrejsika/random-metrics
 Run Prometheus with those sample targets
 
 ```
-prometheus --config.file=02_prometheus.yml
+prometheus --config.file=prom-basic.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-basic.yml
 ```
 
 See <http://127.0.0.1:9090>
@@ -287,7 +299,13 @@ sum(rate(node_network_transmit_bytes_total{device=~"eth.*|enp.*"}[10m])) by (ins
 ### Saved Queries
 
 ```
-prometheus --config.file=05_prometheus.yml
+prometheus --config.file=prom-queries.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-queries.yml
 ```
 
 ## Service Discovery
@@ -295,7 +313,13 @@ prometheus --config.file=05_prometheus.yml
 ### Service Discovery using Consul
 
 ```
-prometheus --config.file=06_prometheus.yml
+prometheus --config.file=prom-consul-sd.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-consul-sd.yml
 ```
 
 ## Push Gateway

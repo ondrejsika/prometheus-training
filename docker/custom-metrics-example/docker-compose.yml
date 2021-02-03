@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  example-server-with-metrics:
+    image: ondrejsika/example-server-with-metrics
+    ports:
+      - 80:80
+  ab0:
+    image: ondrejsika/ab
+    command: ab -n 1000000 -c 8 http://example-server-with-metrics/
+  ab10:
+    image: ondrejsika/ab
+    command: ab -n 100000 -c 4 http://example-server-with-metrics/sleep10
+  ab50:
+    image: ondrejsika/ab
+    command: ab -n 10000 -c 2 http://example-server-with-metrics/sleep50
+  ab100:
+    image: ondrejsika/ab
+    command: ab -n 1000 http://example-server-with-metrics/sleep100
+  ab200:
+    image: ondrejsika/ab
+    command: ab -n 100 http://example-server-with-metrics/sleep200
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --web.enable-lifecycle
+    ports:
+      - 19090:9090
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+volumes:
+  prometheus-data:
