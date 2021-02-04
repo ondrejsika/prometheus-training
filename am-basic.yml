@@ -7,7 +7,7 @@ global:
   # smtp_auth_password: somesecretpassword
   # smtp_auth_identity: prom-demo@sikamail.eu
   # smtp_require_tls: true
-  smtp_from: monitoring@example.com
+  smtp_from: monitoring@maildev.sikademo.com
   smtp_smarthost: maildev.sikademo.com:25
   smtp_require_tls: false
 
@@ -24,11 +24,11 @@ receivers:
   - name: mails
     email_configs:
       - send_resolved: true
-        to: alert-all@example.com
+        to: alert-all@maildev.sikademo.com
         # tls_config:
         #   insecure_skip_verify: true
         headers:
-          From: monitoring@example.com
+          From: monitoring@maildev.sikademo.com
           Subject: '{{ template "email.default.subject" . }}'
-          To: alert-all@example.com
+          To: alert-all@maildev.sikademo.com
         html: '{{ template "email.default.html" . }}'

@@ -1,6 +1,6 @@
 global:
   resolve_timeout: 10s
-  smtp_from: prom@example.com
+  smtp_from: prom@maildev.sikademo.com
   smtp_smarthost: maildev.sikademo.com:25
   smtp_require_tls: false
 
@@ -29,16 +29,16 @@ receivers:
   - name: all-teams
     email_configs:
       - send_resolved: true
-        to: alert@example.com
+        to: alert@maildev.sikademo.com
   - name: frontend-team
     email_configs:
       - send_resolved: true
-        to: alert-frontend@example.com
+        to: alert-frontend@maildev.sikademo.com
   - name: backend-team
     email_configs:
       - send_resolved: true
-        to: alert-backend@example.com
+        to: alert-backend@maildev.sikademo.com
   - name: db-team
     email_configs:
       - send_resolved: true
-        to: alert-db@example.com
+        to: alert-db@maildev.sikademo.com
