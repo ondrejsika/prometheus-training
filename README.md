@@ -140,6 +140,10 @@ See <http://127.0.0.1:9090>
 
 ![](images/prometheus-default-view.png)
 
+Examples:
+
+- http://127.0.0.1:9090/graph?g0.expr=rate(prometheus_http_requests_total%7Bhandler%3D%22%2Fmetrics%22%7D%5B1m%5D)&g0.tab=0&g0.stacked=0&g0.range_input=1h&g1.expr=prometheus_http_requests_total%7Bhandler%3D%22%2Fmetrics%22%7D&g1.tab=0&g1.stacked=0&g1.range_input=1h
+
 ### Run Random Metrics Generator
 
 Run in Docker (see [source](docker/random-metrics))
