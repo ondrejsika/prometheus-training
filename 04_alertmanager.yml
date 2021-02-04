@@ -25,6 +25,16 @@ route:
       match:
         app: db
 
+inhibit_rules:
+  - source_match:
+      app: db
+    target_match:
+      app: backend
+  - source_match:
+      app: lb
+    target_match:
+      app: frontend
+
 receivers:
   - name: all-teams
     email_configs:
