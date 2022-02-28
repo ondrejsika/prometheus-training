@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     cloudflare = {
-      source = "terraform-providers/cloudflare"
+      source = "cloudflare/cloudflare"
     }
     digitalocean = {
       source = "digitalocean/digitalocean"

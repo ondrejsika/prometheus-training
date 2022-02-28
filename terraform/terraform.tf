@@ -1,6 +1,12 @@
 variable "digitalocean_token" {}
-variable "cloudflare_email" {}
-variable "cloudflare_token" {}
+provider "digitalocean" {
+  token = var.digitalocean_token
+}
+
+variable "cloudflare_api_token" {}
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
+}
 
 variable "vm_count" {
   default = 1
@@ -9,14 +15,9 @@ variable "demo_data_vm_count" {
   default = 3
 }
 
-provider "digitalocean" {
-  token = var.digitalocean_token
-}
-
-provider "cloudflare" {
-  version = "~> 1.0"
-  email = var.cloudflare_email
-  token = var.cloudflare_token
+locals {
+  sikadev_com_zone_id  = "b43309a2d6aa933138a03dffc8f341f3"
+  sikademo_com_zone_id = "f2c00168a7ecd694bb1ba017b332c019"
 }
 
 data "digitalocean_ssh_key" "ondrejsika" {
@@ -48,7 +49,7 @@ resource "digitalocean_droplet" "droplet" {
 resource "cloudflare_record" "droplet" {
   count = var.vm_count
 
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "prom${count.index}"
   value  = digitalocean_droplet.droplet[count.index].ipv4_address
   type   = "A"
@@ -58,7 +59,7 @@ resource "cloudflare_record" "droplet" {
 resource "cloudflare_record" "droplet_all" {
   count = var.vm_count
 
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "prom-all"
   value  = digitalocean_droplet.droplet[count.index].ipv4_address
   type   = "A"
@@ -68,7 +69,7 @@ resource "cloudflare_record" "droplet_all" {
 resource "cloudflare_record" "droplet_wildcard" {
   count = var.vm_count
 
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "*.prom${count.index}"
   value  = cloudflare_record.droplet[count.index].hostname
   type   = "CNAME"
@@ -98,7 +99,7 @@ resource "digitalocean_droplet" "prom" {
 }
 
 resource "cloudflare_record" "prom" {
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "prom"
   value  = digitalocean_droplet.prom.ipv4_address
   type   = "A"
@@ -132,7 +133,7 @@ resource "digitalocean_droplet" "demo-data" {
 resource "cloudflare_record" "demo-data" {
   count = var.demo_data_vm_count
 
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "prom-demo-data${count.index}"
   value  = digitalocean_droplet.demo-data[count.index].ipv4_address
   type   = "A"
@@ -142,7 +143,7 @@ resource "cloudflare_record" "demo-data" {
 resource "cloudflare_record" "demo-data_all" {
   count = var.demo_data_vm_count
 
-  domain = "sikademo.com"
+  zone_id = local.sikademo_com_zone_id
   name   = "prom-demo-data-all"
   value  = digitalocean_droplet.demo-data[count.index].ipv4_address
   type   = "A"
