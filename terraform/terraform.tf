@@ -127,6 +127,7 @@ resource "digitalocean_droplet" "demo-data" {
   runcmd:
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
+    - docker run --name random -d -p 80:80 ondrejsika/random-metrics
   EOF
 }
 
