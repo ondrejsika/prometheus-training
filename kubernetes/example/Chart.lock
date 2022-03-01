@@ -1,0 +1,12 @@
+dependencies:
+- name: metrics-generator
+  repository: https://helm.sikalabs.io
+  version: 0.2.0
+- name: simple-prometheus
+  repository: https://helm.sikalabs.io
+  version: 0.2.0
+- name: simple-grafana
+  repository: https://helm.sikalabs.io
+  version: 0.2.0
+digest: sha256:7c235fdef82ca135ece807e1d05745b28d3210f8d056dda7cd66a52b427537b5
+generated: "2022-03-01T18:15:45.791514+01:00"

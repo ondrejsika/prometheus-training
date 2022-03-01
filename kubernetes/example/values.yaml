@@ -1,0 +1,23 @@
+metrics-generator:
+  namePrefix: metrics-generator-
+  host: metric-generator-example.k8s.sikademo.com
+simple-prometheus:
+  namePrefix: prometheus-
+  host: prometheus-example.k8s.sikademo.com
+  prometheus_yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+
+    scrape_configs:
+      - job_name: example
+        static_configs:
+          - targets:
+              - metrics-generator-example:80
+simple-grafana:
+  namePrefix: grafana-
+  host: grafana-example.k8s.sikademo.com
+  grafana_ini: |
+    [auth.anonymous]
+    enabled = true
+    org_role = Admin
