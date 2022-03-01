@@ -21,12 +21,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1646135347439,
+  "id": 2,
+  "iteration": 1646140720926,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${prometheus}"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -74,7 +78,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Gk7XD7Y7k"
+            "uid": "${prometheus}"
           },
           "exemplar": false,
           "expr": "100 * (sum(example_request_duration_seconds_bucket{path=~\"$path\", status_code=~\"$status_code\", method=~\"$method\"}) by (le) / ignoring (le) group_left sum(example_request_duration_seconds_count{path=~\"$path\", status_code=~\"$status_code\", method=~\"$method\"}))",
@@ -88,6 +92,10 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${prometheus}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -160,7 +168,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Gk7XD7Y7k"
+            "uid": "${prometheus}"
           },
           "exemplar": true,
           "expr": "rate(example_request_duration_seconds_count{path=~\"$path\", status_code=~\"$status_code\", method=~\"$method\"}[1m])",
@@ -173,6 +181,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${prometheus}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -221,7 +233,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Gk7XD7Y7k"
+            "uid": "${prometheus}"
           },
           "exemplar": true,
           "expr": "rate(example_request_duration_seconds_count{path=~\"$path\", status_code=~\"$status_code\", method=~\"$method\"}[1m])",
@@ -322,6 +334,24 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Prometheus",
+          "value": "Prometheus"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "prometheus",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },
@@ -333,6 +363,6 @@
   "timezone": "",
   "title": "Example Dashboard",
   "uid": "1CpCv7Ynk",
-  "version": 8,
+  "version": 3,
   "weekStart": ""
 }
