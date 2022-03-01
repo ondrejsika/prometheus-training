@@ -460,6 +460,21 @@ Fix DB & LB and see Alerts, Alert Manager & MailDev again.
 
 ## Grafana
 
+### Grafana Screenshots
+
+![](images/screenshots/01_01_dashboard.png)
+
+![](images/screenshots/01_02_all_variables.png)
+
+![](images/screenshots/01_03_variable_settings.png)
+
+![](images/screenshots/01_04_histogram.png)
+
+![](images/screenshots/01_05_rate_timeseries.png)
+
+![](images/screenshots/01_06_rate_stat.png)
+
+
 ### Dashboards on Grafana.com
 
 All dashboards are on: <https://grafana.com/grafana/dashboards>
