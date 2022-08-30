@@ -12,6 +12,9 @@ terraform.tfvars
 *.log
 .terraform.tfstate.lock.info
 
+# Infracost
+.infracost
+
 # Kubernetes
 /kubernetes/*/charts
 
