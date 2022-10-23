@@ -1,1 +1,3 @@
 dashboards
+.terraform
+*.tfstate
