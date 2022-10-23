@@ -17,7 +17,8 @@ Write me mail to <ondrej@sika.io>
 
 ### Related Courses
 
-- Kubernetes Training - [ondrejsika/kubernetes-training](https://github.com/ondrejsika/kubernetes-training) (on Github)
+- [Kubernetes Training in Czech Republic](https://ondrej-sika.cz/skoleni/kubernetes?x_source=github-ondrejsika-prometheus-training&_s=gh-prometheus-training)
+- [Kubernetes Training in Europe & Middle East](https://ondrej-sika.com/training/kubernetes?x_source=github-ondrejsika-prometheus-training&_s=gh-prometheus-training)
 
 ## About Me - Ondrej Sika
 
