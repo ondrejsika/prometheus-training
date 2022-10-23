@@ -41,6 +41,12 @@ resource "digitalocean_droplet" "droplet" {
   chpasswd:
     expire: false
   runcmd:
+    - apt-get update
+    - apt-get install -y curl sudo git vim htop
+    - curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
+    - install-slu install -v v0.54.0-dev-1
+    - slu install-bin training-cli -v v0.5.0-dev-6
+    - HOME=/root training-cli prometheus vm-setup
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
   EOF
@@ -93,6 +99,12 @@ resource "digitalocean_droplet" "prom" {
   chpasswd:
     expire: false
   runcmd:
+    - apt-get update
+    - apt-get install -y curl sudo git vim htop
+    - curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
+    - install-slu install -v v0.54.0-dev-1
+    - slu install-bin training-cli -v v0.5.0-dev-6
+    - HOME=/root training-cli prometheus vm-setup
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
     - docker run --rm -d -p 9115:9115 --name blackbox_exporter prom/blackbox-exporter:master
@@ -126,6 +138,10 @@ resource "digitalocean_droplet" "demo-data" {
   chpasswd:
     expire: false
   runcmd:
+    - apt-get update
+    - apt-get install -y curl sudo git vim htop
+    - curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
+    - install-slu install -v v0.54.0-dev-1
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
     - docker run --name random -d -p 80:80 ondrejsika/random-metrics
