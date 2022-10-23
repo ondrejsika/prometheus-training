@@ -50,9 +50,9 @@ resource "cloudflare_record" "droplet" {
   count = var.vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name   = "prom${count.index}"
-  value  = digitalocean_droplet.droplet[count.index].ipv4_address
-  type   = "A"
+  name    = "prom${count.index}"
+  value   = digitalocean_droplet.droplet[count.index].ipv4_address
+  type    = "A"
   proxied = false
 }
 
@@ -60,9 +60,9 @@ resource "cloudflare_record" "droplet_all" {
   count = var.vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name   = "prom-all"
-  value  = digitalocean_droplet.droplet[count.index].ipv4_address
-  type   = "A"
+  name    = "prom-all"
+  value   = digitalocean_droplet.droplet[count.index].ipv4_address
+  type    = "A"
   proxied = false
 }
 
@@ -70,9 +70,9 @@ resource "cloudflare_record" "droplet_wildcard" {
   count = var.vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name   = "*.prom${count.index}"
-  value  = cloudflare_record.droplet[count.index].hostname
-  type   = "CNAME"
+  name    = "*.prom${count.index}"
+  value   = cloudflare_record.droplet[count.index].hostname
+  type    = "CNAME"
   proxied = false
 }
 
@@ -101,9 +101,9 @@ resource "digitalocean_droplet" "prom" {
 
 resource "cloudflare_record" "prom" {
   zone_id = local.sikademo_com_zone_id
-  name   = "prom"
-  value  = digitalocean_droplet.prom.ipv4_address
-  type   = "A"
+  name    = "prom"
+  value   = digitalocean_droplet.prom.ipv4_address
+  type    = "A"
   proxied = false
 }
 
@@ -136,9 +136,9 @@ resource "cloudflare_record" "demo-data" {
   count = var.demo_data_vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name   = "prom-demo-data${count.index}"
-  value  = digitalocean_droplet.demo-data[count.index].ipv4_address
-  type   = "A"
+  name    = "prom-demo-data${count.index}"
+  value   = digitalocean_droplet.demo-data[count.index].ipv4_address
+  type    = "A"
   proxied = false
 }
 
@@ -146,8 +146,8 @@ resource "cloudflare_record" "demo-data_all" {
   count = var.demo_data_vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name   = "prom-demo-data-all"
-  value  = digitalocean_droplet.demo-data[count.index].ipv4_address
-  type   = "A"
+  name    = "prom-demo-data-all"
+  value   = digitalocean_droplet.demo-data[count.index].ipv4_address
+  type    = "A"
   proxied = false
 }
