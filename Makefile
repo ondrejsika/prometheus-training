@@ -1,8 +1,10 @@
 fmt:
 	yarn run prettier-write
+	terraform fmt -recursive
 
 fmt-check:
 	yarn run prettier-check
+	terraform fmt -recursive -check
 
 setup-git-hooks:
 	rm -rf .git/hooks
