@@ -472,7 +472,6 @@ Fix DB & LB and see Alerts, Alert Manager & MailDev again.
 
 ![](images/screenshots/01_06_rate_stat.png)
 
-
 ### Dashboards on Grafana.com
 
 All dashboards are on: <https://grafana.com/grafana/dashboards>
