@@ -3,6 +3,11 @@ global:
   smtp_from: prom@maildev.sikademo.com
   smtp_smarthost: maildev.sikademo.com:25
   smtp_require_tls: false
+  # Example for https://ethereal.email
+  # smtp_smarthost: smtp.ethereal.email:587
+  # smtp_require_tls: true
+  # smtp_auth_username: xxx.xxx@ethereal.email
+  # smtp_auth_password: xxx
 
 route:
   receiver: all-teams
