@@ -5,7 +5,7 @@ groups:
         expr: probe_success{exported_instance="demo",exported_job="demo"} == 0
         for: 20s
         labels:
-          level: critical
+          severity: critical
         annotations:
           summary: "{{ $labels.app }} is down"
           description: "{{ $labels.app }} has been down for more than 20 seconds."
