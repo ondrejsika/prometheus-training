@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: push-gw
+    metric_relabel_configs:
+      - source_labels: [exported_job]
+        target_label: job
+      - source_labels: [exported_instance]
+        target_label: instance
+      - regex: "exported_instance|exported_job"
+        action: labeldrop
+    static_configs:
+      - targets:
+          - prom0.sikademo.com:9091
+          - 127.0.0.1:9091
