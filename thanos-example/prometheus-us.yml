@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+  external_labels:
+    region: us
+
+scrape_configs:
+  - job_name: example
+    static_configs:
+      - targets:
+          # run: slu metrics-generator server
+          - 127.0.0.1:8000

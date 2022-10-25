@@ -1,0 +1,4 @@
+type: FILESYSTEM
+config:
+  directory: "./thanos-data-eu"
+prefix: ""
