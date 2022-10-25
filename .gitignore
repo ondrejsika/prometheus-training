@@ -19,6 +19,7 @@ terraform.tfvars
 /kubernetes/*/charts
 
 /prometheus.yml
+/service-discovery-file.yml
 
 # Nodejs
 node_modules
