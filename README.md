@@ -523,3 +523,9 @@ Wanna to go for a beer or do some work together? Just [book me](https://book-me.
 ## Resources
 
 - Prometheus vs Others - https://prometheus.io/docs/introduction/comparison/
+
+## Examples from Training
+
+### 2022-10-24 Solargis
+
+- https://github.com/sika-training-examples/2022-10-25-solargis-go-server-with-metrics
