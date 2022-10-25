@@ -1,4 +1,4 @@
 type: FILESYSTEM
 config:
-  directory: "./thanos-data-eu"
+  directory: "./data/thanos-data-eu"
 prefix: ""
