@@ -500,6 +500,10 @@ Kubernetes
 - 10 Project/NameSpace Based on Memory - `10551` - https://grafana.com/grafana/dashboards/10551
 - Cluster Monitoring for Kubernetes - `10000` - https://grafana.com/grafana/dashboards/10000
 
+## Thanos
+
+https://thanos.io/tip/thanos/quick-tutorial.md/
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
