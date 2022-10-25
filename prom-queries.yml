@@ -1,11 +1,32 @@
 global:
   scrape_interval: 5s
+  evaluation_interval: 5s
 
 scrape_configs:
   - job_name: "node"
+    dns_sd_configs:
+      - type: A
+        port: 9100
+        refresh_interval: 10s
+        names:
+          - prom-demo-data-all.sikademo.com
+
+  - job_name: blackbox
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: prom0.sikademo.com:9115
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
     static_configs:
       - targets:
-          - "example.sikademo.com:9100"
+          - https://ondrejsika.com
+          - https://solargis.com
+          - https://fwjkfhewfhewhkjfrew.com
 
 rule_files:
-  - "prom-queries.rules.yml"
+  - prom-queries.rules.yml

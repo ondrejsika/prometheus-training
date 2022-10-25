@@ -19,8 +19,8 @@ scrape_configs:
         labels:
           env: "dev"
 
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-            - "localhost:9093"
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#             - "localhost:9093"

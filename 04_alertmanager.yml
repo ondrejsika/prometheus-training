@@ -1,8 +1,10 @@
 global:
   resolve_timeout: 10s
   smtp_from: prom@maildev.sikademo.com
-  smtp_smarthost: maildev.sikademo.com:25
-  smtp_require_tls: false
+  smtp_smarthost: smtp.ethereal.email:587
+  smtp_require_tls: true
+  smtp_auth_username: curtis.ledner@ethereal.email
+  smtp_auth_password: bRFfSqQ2zR4JVBdbzp
 
 route:
   receiver: all-teams
@@ -12,7 +14,7 @@ route:
     - app
   group_wait: 10s
   group_interval: 10s
-  repeat_interval: 10m
+  repeat_interval: 1m
 
   routes:
     - receiver: "frontend-team"

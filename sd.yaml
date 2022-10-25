@@ -1,0 +1,10 @@
+- targets:
+  - prom-demo-data0.sikademo.com:9100
+  labels:
+    foo: bar
+- targets:
+  - prom-demo-data1.sikademo.com:9100
+  labels:
+    aaa: bbb
+- targets:
+  - prom0.sikademo.com:9091

@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: "file-sd"
+    file_sd_configs:
+      - files:
+          - sd.yaml
+        refresh_interval: 5s
+    relabel_configs:
+      - source_labels: [exported_instance]
+        target_label: __param_instance
+      - source_labels: [__param_instance]
+        target_label: instance
+      - source_labels: [exported_job]
+        target_label: job

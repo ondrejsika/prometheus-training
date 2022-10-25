@@ -1,0 +1,4 @@
+type: FILESYSTEM
+config:
+  directory: "./thanos-us-east"
+prefix: ""
