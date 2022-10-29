@@ -26,6 +26,14 @@ Write me mail to <ondrej@sika.io>
 
 Git, Gitlab, Gitlab CI, Docker, Kubernetes, Terraform, Prometheus, ELK / EFK
 
+## DevOps Live
+
+<https://devopslive.cz>
+
+## DevOps Kniha (kniha.sika.io)
+
+<https://kniha.sika.io>
+
 ## Star, Create Issues, Fork, and Contribute
 
 Feel free to star this repository or fork it.
