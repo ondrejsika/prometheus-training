@@ -54,11 +54,38 @@ For sharing links & "secrets".
 
 ## Install Prometheus Locally
 
+<!-- BEGIN Install Mac -->
+
 ### Mac
 
 ```
+brew install sikalabs/tap/slu
 brew install prometheus
+brew install thanos
+sudo slu install-bin alertmanager
 ```
+
+<!-- END Install Mac -->
+
+<!-- BEGIN Install Linux -->
+
+### Linux
+
+Install [slu](https://github.com/sikalabs/slu)
+
+```
+curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
+```
+
+Install tools
+
+```
+sudo slu install-bin prometheus
+sudo slu install-bin alertmanager
+sudo slu install-bin thanos
+```
+
+<!-- END Install Linux -->
 
 <!-- END Install -->
 
