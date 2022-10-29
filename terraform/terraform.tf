@@ -39,7 +39,6 @@ resource "digitalocean_droplet" "droplet" {
     - apt-get update
     - apt-get install -y curl sudo git vim htop
     - curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
-    - install-slu install -v v0.54.0-dev-1
     - slu install-bin training-cli -v v0.5.0-dev-6
     - HOME=/root training-cli prometheus vm-setup
     - ufw disable
@@ -97,7 +96,6 @@ resource "digitalocean_droplet" "prom" {
     - apt-get update
     - apt-get install -y curl sudo git vim htop
     - curl -fsSL https://raw.githubusercontent.com/sikalabs/slu/master/install.sh | sudo sh
-    - install-slu install -v v0.54.0-dev-1
     - slu install-bin training-cli -v v0.5.0-dev-6
     - HOME=/root training-cli prometheus vm-setup
     - ufw disable
