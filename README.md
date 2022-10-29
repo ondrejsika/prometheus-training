@@ -502,7 +502,56 @@ Kubernetes
 
 ## Thanos
 
-https://thanos.io/tip/thanos/quick-tutorial.md/
+- https://thanos.io/
+- https://thanos.io/tip/thanos/quick-tutorial.md/
+
+### Thanos Example
+
+```
+cd thanos-example
+```
+
+Run multiple Prometheuses (in US & EU zone)
+
+```
+./run-prom-us.sh
+```
+
+```
+./run-prom-eu.sh
+```
+
+Run sidecars for those Prometheuses
+
+```
+./run-thanos-sidecar-us.sh
+```
+
+```
+./run-thanos-sidecar-eu.sh
+```
+
+Run Prometheus Query connected to sidecars
+
+```
+./run-thanos-query-sidecar.sh
+```
+
+Run Thanos Store for each sidecar data
+
+```
+./run-thanos-store-us.sh
+```
+
+```
+./run-thanos-store-eu.sh
+```
+
+Run Prometheus Query connected to stores
+
+```
+./run-thanos-query-store.sh
+```
 
 ## Thank you! & Questions?
 
