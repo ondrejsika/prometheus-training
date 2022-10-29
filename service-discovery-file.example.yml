@@ -1,8 +1,8 @@
 - targets:
-  - 127.0.0.1:8000
+    - 127.0.0.1:8000
   labels:
     cluster: foo
 - targets:
-  - 127.0.0.1:8000
+    - 127.0.0.1:8000
   labels:
     cluster: bar
