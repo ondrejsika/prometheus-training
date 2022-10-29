@@ -127,7 +127,7 @@ resource "digitalocean_droplet" "demo-data" {
   image  = "docker-18-04"
   name   = "prom-demo-data${count.index}"
   region = "fra1"
-  size   = "s-1vcpu-2gb"
+  size   = "s-1vcpu-1gb"
   ssh_keys = [
     data.digitalocean_ssh_key.ondrejsika.id
   ]
