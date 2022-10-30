@@ -101,6 +101,8 @@ resource "digitalocean_droplet" "prom" {
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
     - docker run --rm -d -p 9115:9115 --name blackbox_exporter prom/blackbox-exporter:master
+    - git clone https://github.com/ondrejsika/prometheus-training
+    - cd prometheus-training/docker/prom.sikademo.com && docker-compose up -d
   EOF
 }
 
