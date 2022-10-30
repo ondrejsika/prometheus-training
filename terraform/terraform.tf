@@ -137,7 +137,12 @@ resource "digitalocean_droplet" "demo-data" {
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
     - docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/dev/disk/:/dev/disk:ro --publish=9338:9338 --detach=true --name=cadvisor gcr.io/cadvisor/cadvisor --port=9338
-    - docker run --name random -d -p 80:80 ondrejsika/random-metrics
+    - docker run --name random1 -d -p 9001:80 ondrejsika/random-metrics
+    - docker run --name random2 -d -p 9002:80 ondrejsika/random-metrics
+    - docker run --name random3 -d -p 9003:80 ondrejsika/random-metrics
+    - docker run --name metgen1 -d -p 9011:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
+    - docker run --name metgen2 -d -p 9012:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
+    - docker run --name metgen3 -d -p 9013:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
   EOF
 }
 
