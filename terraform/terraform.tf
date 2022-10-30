@@ -137,6 +137,7 @@ resource "digitalocean_droplet" "demo-data" {
     - install-slu install -v v0.54.0-dev-1
     - ufw disable
     - docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter:latest --path.rootfs=/host
+    - docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/dev/disk/:/dev/disk:ro --publish=9338:9338 --detach=true --name=cadvisor gcr.io/cadvisor/cadvisor --port=9338
     - docker run --name random -d -p 80:80 ondrejsika/random-metrics
   EOF
 }
