@@ -1,3 +1,4 @@
 dashboards
 .terraform
 *.tfstate
+.infracost
