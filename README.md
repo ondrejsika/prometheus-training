@@ -594,6 +594,105 @@ Kubernetes
 - 10 Project/NameSpace Based on Memory - `10551` - https://grafana.com/grafana/dashboards/10551
 - Cluster Monitoring for Kubernetes - `10000` - https://grafana.com/grafana/dashboards/10000
 
+## Loki
+
+![loki](./images/loki-doggos/loki1.jpg)
+![loki](./images/loki-doggos/loki2.jpg)
+
+[@wild.loki.appears](https://www.instagram.com/wild.loki.appears/)
+
+[@loki](https://www.instagram.com/loki/)
+
+```
+helm upgrade --install loki loki \
+  --repo https://grafana.github.io/helm-charts \
+  --namespace loki \
+  --create-namespace \
+  --values loki-example/loki.values.yml
+```
+
+If you don't have Grafana, you can istall it.
+
+```
+helm upgrade --install grafana grafana \
+  --repo https://grafana.github.io/helm-charts \
+  --namespace grafana \
+  --create-namespace \
+  --values loki-example/grafana.values.yml
+```
+
+```
+helm upgrade --install promtail promtail \
+  --repo https://grafana.github.io/helm-charts \
+  --namespace promtail \
+  --create-namespace \
+  --values loki-example/promtail.values.yml
+```
+
+Run some demo logging
+
+```
+kubectl apply -f loki-example/loggen.yml -f loki-example/loggen-fast.yml -f loki-example/loggen-slow.yml -f loki-example/loggen-json.yml
+```
+
+Add Loki data source `http://loki-read.loki:3100`
+
+Queries
+
+```
+{app="loggen"}
+```
+
+```
+{app=~"loggen.*"} | line_format "{{ .node_name }} {{ .app }}"
+```
+
+```
+{app=~"loggen.*"} |= "ERROR"
+```
+
+```
+{app=~"loggen.*"} != "DEBUG"
+```
+
+```
+{app=~"loggen.*"} != "DEBUG" != "INFO"
+```
+
+```
+{app=~"loggen.*"} !~ "DEBUG|INFO"
+```
+
+```
+{app=~"loggen.*"} | pattern `<_> <_> <_> <level> <message>` | line_format "{{ .app }} -- {{ .level }} -- {{ .message }}"
+```
+
+```
+{app="json-loggen"}
+```
+
+```
+{app="json-loggen"} | json
+```
+
+```
+{app="json-loggen"} | json | line_format "{{ .app }} -- {{ .level }} -- {{ .message }}"
+```
+
+logctl
+
+```
+kubectl port-forward -n loki svc/loki-read 3100:3100
+```
+
+```
+export LOKI_ADDR=http://127.0.0.1:3100
+```
+
+```
+logcli query '{app="loggen-slow"} | pattern `<_> <_> <_> <level> <msg>` | line_format "{{ .app }} -- {{.level}} -- {{.msg}}"'
+```
+
 ## Thanos
 
 - https://thanos.io/
