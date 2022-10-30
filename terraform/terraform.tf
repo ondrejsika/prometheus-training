@@ -112,13 +112,13 @@ resource "cloudflare_record" "prom" {
   proxied = false
 }
 
-# Demo Data
+# Example VMs with Demo Data
 
 resource "digitalocean_droplet" "demo-data" {
   count = local.demo_data_vm_count
 
   image  = "docker-18-04"
-  name   = "prom-demo-data${count.index}"
+  name   = "example${count.index}"
   region = "fra1"
   size   = "s-1vcpu-1gb"
   ssh_keys = [
@@ -146,7 +146,7 @@ resource "cloudflare_record" "demo-data" {
   count = local.demo_data_vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name    = "prom-demo-data${count.index}"
+  name    = "example${count.index}"
   value   = digitalocean_droplet.demo-data[count.index].ipv4_address
   type    = "A"
   proxied = false
@@ -156,7 +156,7 @@ resource "cloudflare_record" "demo-data_all" {
   count = local.demo_data_vm_count
 
   zone_id = local.sikademo_com_zone_id
-  name    = "prom-demo-data-all"
+  name    = "example-all"
   value   = digitalocean_droplet.demo-data[count.index].ipv4_address
   type    = "A"
   proxied = false

@@ -9,11 +9,11 @@ scrape_configs:
         port: 9100
         refresh_interval: 10s
         names:
-          - prom-demo-data-all.sikademo.com
+          - example-all.sikademo.com
   - job_name: example
     dns_sd_configs:
       - type: A
         port: 80
         refresh_interval: 10s
         names:
-          - prom-demo-data-all.sikademo.com
+          - example-all.sikademo.com
