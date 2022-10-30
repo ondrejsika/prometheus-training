@@ -7,20 +7,14 @@ scrape_configs:
       - targets:
           - "localhost:9090"
 
-  - job_name: "example-random"
+  - job_name: "metgen"
     static_configs:
       - targets:
-          - "localhost:8080"
-          - "localhost:8081"
+          - "localhost:8000"
+          - "localhost:8001"
         labels:
           env: "prod"
       - targets:
-          - "localhost:8082"
+          - "localhost:8002"
         labels:
           env: "dev"
-
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-            - "localhost:9093"

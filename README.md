@@ -179,14 +179,20 @@ Examples:
 
 - http://127.0.0.1:9090/graph?g0.expr=rate(prometheus_http_requests_total%7Bhandler%3D%22%2Fmetrics%22%7D%5B1m%5D)&g0.tab=0&g0.stacked=0&g0.range_input=1h&g1.expr=prometheus_http_requests_total%7Bhandler%3D%22%2Fmetrics%22%7D&g1.tab=0&g1.stacked=0&g1.range_input=1h
 
-### Run Random Metrics Generator
-
-Run in Docker (see [source](docker/random-metrics))
+### Run Example Metrics Generator (using slu)
 
 ```
-docker run --name random8080 -d -p 8080:80 ondrejsika/random-metrics
-docker run --name random8081 -d -p 8081:80 ondrejsika/random-metrics
-docker run --name random8082 -d -p 8082:80 ondrejsika/random-metrics
+slu metrics-generator server
+slu metrics-generator server -p 8001
+slu metrics-generator server -p 8002
+```
+
+or in Docker
+
+```
+docker run --name metgen0 -d -p 8000:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
+docker run --name metgen1 -d -p 8001:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
+docker run --name metgen2 -d -p 8002:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
 ```
 
 Run Prometheus with those sample targets
@@ -201,7 +207,10 @@ or
 ./run-prometheus.sh prom-basic.yml
 ```
 
-See <http://127.0.0.1:9090>
+See:
+
+- <http://127.0.0.1:9090>
+- http://127.0.0.1:9090/graph?g0.expr=sum(rate(example_request_duration_seconds_count%5B1m%5D))%20by%20(instance)&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
 
 ## Prometeheus Exporters
 
