@@ -9,21 +9,41 @@ scrape_configs:
           - example0.sikademo.com:9100
           - example1.sikademo.com:9100
           - example2.sikademo.com:9100
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
   - job_name: cadvisor
     static_configs:
       - targets:
           - example0.sikademo.com:9338
           - example1.sikademo.com:9338
           - example2.sikademo.com:9338
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
   - job_name: random-metrics
     static_configs:
       - targets:
           - example0.sikademo.com:9001
           - example1.sikademo.com:9002
           - example2.sikademo.com:9003
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
   - job_name: metgen
     static_configs:
       - targets:
           - example0.sikademo.com:9011
           - example1.sikademo.com:9012
           - example2.sikademo.com:9013
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
