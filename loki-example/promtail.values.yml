@@ -1,0 +1,3 @@
+config:
+  clients:
+    - url: http://loki-write.loki:3100/loki/api/v1/push

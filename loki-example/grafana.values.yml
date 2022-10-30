@@ -1,0 +1,14 @@
+adminPassword: admin
+ingress:
+  enabled: true
+  pathType: Prefix
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  hosts:
+    - grafana.k8s.sikademo.com
+  paths:
+    - /
+  tls:
+    - hosts:
+        - grafana.k8s.sikademo.com
+      secretName: grafana-tls

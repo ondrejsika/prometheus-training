@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-loggen
+spec:
+  selector:
+    matchLabels:
+      app: json-loggen
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: json-loggen
+    spec:
+      containers:
+        - name: main
+          image: sikalabs/slu:v0.41.0
+          command:
+            - /bin/sh
+            - -c
+            - slu loggen --sleep-time 1000 --json
+          resources:
+            requests:
+              cpu: 30m
+              memory: 10Mi
+            limits:
+              cpu: 100m
+              memory: 50Mi

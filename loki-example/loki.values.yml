@@ -1,0 +1,4 @@
+# https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml
+
+loki:
+  auth_enabled: false
