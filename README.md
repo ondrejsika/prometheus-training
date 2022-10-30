@@ -359,6 +359,14 @@ Network transmit in kbps
 sum(rate(node_network_transmit_bytes_total{device=~"eth.*|enp.*"}[10m])) by (instance)
 ```
 
+CPU Count
+
+```
+count without(cpu, mode) (node_cpu_seconds_total{mode="idle"})
+```
+
+See: http://prom.sikademo.com:9090/graph?g0.expr=count%20without(cpu%2C%20mode)%20(node_cpu_seconds_total%7Bmode%3D%22idle%22%7D)%20&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
+
 ### Saved Queries
 
 ```
