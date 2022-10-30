@@ -20,3 +20,10 @@ reload-am:
 
 cleanup:
 	rm -rf data
+
+install-simple-grafana:
+	helm upgrade --install simple-grafana \
+		--repo https://helm.sikalabs.io simple-grafana \
+		--namespace simple-grafana \
+		--create-namespace \
+		--values ./kubernetes/values/simple-grafana.values.yml

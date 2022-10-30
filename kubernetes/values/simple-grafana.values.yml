@@ -1,0 +1,5 @@
+host: simple-grafana.k8s.sikademo.com
+grafana_ini: |
+  [auth.anonymous]
+  enabled = true
+  org_role = Admin
