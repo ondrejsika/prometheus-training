@@ -13,5 +13,5 @@ scrape_configs:
         action: labeldrop
     static_configs:
       - targets:
-          - prom0.sikademo.com:9091
+          - prom.sikademo.com:9091
           - 127.0.0.1:9091
