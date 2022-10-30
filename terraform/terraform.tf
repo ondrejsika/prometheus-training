@@ -10,7 +10,7 @@ provider "cloudflare" {
 
 locals {
   vm_count             = 1
-  demo_data_vm_count   = 3
+  example_vm_count     = 3
   sikadev_com_zone_id  = "b43309a2d6aa933138a03dffc8f341f3"
   sikademo_com_zone_id = "f2c00168a7ecd694bb1ba017b332c019"
 }
@@ -117,8 +117,8 @@ resource "cloudflare_record" "prom" {
 
 # Example VMs with Demo Data
 
-resource "digitalocean_droplet" "demo-data" {
-  count = local.demo_data_vm_count
+resource "digitalocean_droplet" "example" {
+  count = local.example_vm_count
 
   image  = "docker-18-04"
   name   = "example${count.index}"
@@ -149,22 +149,22 @@ resource "digitalocean_droplet" "demo-data" {
   EOF
 }
 
-resource "cloudflare_record" "demo-data" {
-  count = local.demo_data_vm_count
+resource "cloudflare_record" "example" {
+  count = local.example_vm_count
 
   zone_id = local.sikademo_com_zone_id
   name    = "example${count.index}"
-  value   = digitalocean_droplet.demo-data[count.index].ipv4_address
+  value   = digitalocean_droplet.example[count.index].ipv4_address
   type    = "A"
   proxied = false
 }
 
-resource "cloudflare_record" "demo-data_all" {
-  count = local.demo_data_vm_count
+resource "cloudflare_record" "example_all" {
+  count = local.example_vm_count
 
   zone_id = local.sikademo_com_zone_id
   name    = "example-all"
-  value   = digitalocean_droplet.demo-data[count.index].ipv4_address
+  value   = digitalocean_droplet.example[count.index].ipv4_address
   type    = "A"
   proxied = false
 }
