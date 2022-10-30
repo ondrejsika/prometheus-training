@@ -283,6 +283,16 @@ Select time series
 node_network_receive_bytes_total
 ```
 
+```
+{__name__="node_network_receive_bytes_total"}
+```
+
+```
+node_network_receive_bytes_total / {__name__="node_network_receive_bytes_total"}
+```
+
+See: http://prom.sikademo.com:9090/graph?g0.expr=node_network_receive_bytes_total%20%2F%20%7B__name__%3D%22node_network_receive_bytes_total%22%7D&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g1.expr=node_network_receive_bytes_total&g1.tab=1&g1.stacked=0&g1.show_exemplars=0&g1.range_input=1h
+
 Select time series by label
 
 ```
@@ -305,6 +315,10 @@ node_network_receive_bytes_total{device!~"eth.+"}
 
 ```
 node_network_receive_bytes_total{device=~"eth0|lo"}
+```
+
+```
+{__name__=~"node_network_(receive|transmit)_bytes_total"}
 ```
 
 Offset
