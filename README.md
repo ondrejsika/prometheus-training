@@ -231,7 +231,7 @@ Install on host using Docker:
 docker run --name node-exporter -d --net=host --pid=host -v /:/host:ro,rslave quay.io/prometheus/node-exporter --path.rootfs=/host
 ```
 
-See: <http://prom0.sikademo.com:9100/metrics>
+See: <http://prom.sikademo.com:9100/metrics>
 
 Example for Mac (without rootfs and host network)
 
@@ -249,12 +249,12 @@ Install on host using Docker:
 docker run --rm -d -p 9115:9115 --name blackbox_exporter prom/blackbox-exporter:master
 ```
 
-See: <http://prom0.sikademo.com:9115/metrics>
+See: <http://prom.sikademo.com:9115/metrics>
 
 Check status code 200 on website:
 
-- sika.io: <http://prom0.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
-- foo.int (not working): <http://prom0.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
+- sika.io: <http://prom.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
+- foo.int (not working): <http://prom.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
 
 ### cAdvisor
 
@@ -268,8 +268,8 @@ docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sy
 
 See:
 
-- Metrics: <http://prom0.sikademo.com:9338/metrics>
-- Dashboar: <http://prom0.sikademo.com:9338/>
+- Metrics: <http://prom.sikademo.com:9338/metrics>
+- Dashboar: <http://prom.sikademo.com:9338/>
 
 ## PromQL
 
@@ -381,21 +381,21 @@ docker run --name push-gateway -d -p 9091:9091 prom/pushgateway
 
 See:
 
-- Web UI: <http://prom0.sikademo.com:9091/>
-- Metrics: <http://prom0.sikademo.com:9091/metrics>
+- Web UI: <http://prom.sikademo.com:9091/>
+- Metrics: <http://prom.sikademo.com:9091/metrics>
 
 ### Examples
 
 Push with label `{job="some_job"}`
 
 ```
-echo "demo 3.14" | curl --data-binary @- http://prom0.sikademo.com:9091/metrics/job/some_job
+echo "demo 3.14" | curl --data-binary @- http://prom.sikademo.com:9091/metrics/job/some_job
 ```
 
 Push with label `{job="other_job",instance="some_instance"}`
 
 ```
-cat <<EOF | curl --data-binary @- http://prom0.sikademo.com:9091/metrics/job/some_job/instance/some_instance
+cat <<EOF | curl --data-binary @- http://prom.sikademo.com:9091/metrics/job/some_job/instance/some_instance
 # TYPE some_metric counter
 some_metric{label="val1"} 42
 # TYPE another_metric gauge
@@ -407,11 +407,11 @@ EOF
 Delete metrics from Push Gateway:
 
 ```
-curl -X DELETE http://prom0.sikademo.com:9091/metrics/job/some_job
+curl -X DELETE http://prom.sikademo.com:9091/metrics/job/some_job
 ```
 
 ```
-curl -X DELETE http://prom0.sikademo.com:9091/metrics/job/some_job/instance/some_instance
+curl -X DELETE http://prom.sikademo.com:9091/metrics/job/some_job/instance/some_instance
 ```
 
 ## Alertmanager
