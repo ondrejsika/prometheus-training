@@ -359,6 +359,36 @@ or
 
 ## Service Discovery
 
+### Service Discovery using DNS
+
+```
+prometheus --config.file=prom-sd-dns.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-sd-dns.yml
+```
+
+### Service Discovery using file
+
+Copy `service-discovery-file.example.yml` to `service-discovery-file.yml`
+
+```
+cp service-discovery-file.example.yml service-discovery-file.yml
+```
+
+```
+prometheus --config.file=prom-sd-file.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-sd-dns.yml
+```
+
 ### Service Discovery using Consul
 
 ```
