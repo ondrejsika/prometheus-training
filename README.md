@@ -269,7 +269,7 @@ docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sy
 See:
 
 - Metrics: <http://prom.sikademo.com:9338/metrics>
-- Dashboar: <http://prom.sikademo.com:9338/>
+- Dashboard: <http://prom.sikademo.com:9338/>
 
 ## PromQL
 
