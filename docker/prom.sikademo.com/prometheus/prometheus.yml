@@ -7,6 +7,17 @@ scrape_configs:
     static_configs:
       - targets:
           - 127.0.0.1:9090
+  - job_name: push-gateway
+    metric_relabel_configs:
+      - source_labels: [exported_job]
+        target_label: job
+      - source_labels: [exported_instance]
+        target_label: instance
+      - regex: "exported_instance|exported_job"
+        action: labeldrop
+    static_configs:
+      - targets:
+          - prom.sikademo.com:9091
   - job_name: node-exporter
     static_configs:
       - targets:
