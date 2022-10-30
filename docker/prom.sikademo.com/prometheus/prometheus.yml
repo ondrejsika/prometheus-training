@@ -21,6 +21,7 @@ scrape_configs:
   - job_name: node-exporter
     static_configs:
       - targets:
+          - prom.sikademo.com:9100
           - example0.sikademo.com:9100
           - example1.sikademo.com:9100
           - example2.sikademo.com:9100
@@ -32,6 +33,7 @@ scrape_configs:
   - job_name: cadvisor
     static_configs:
       - targets:
+          - prom.sikademo.com:9100
           - example0.sikademo.com:9338
           - example1.sikademo.com:9338
           - example2.sikademo.com:9338
