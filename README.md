@@ -333,6 +333,13 @@ Rates
 rate(node_network_receive_bytes_total[5m])
 ```
 
+`rate` vs `irate`
+
+- `rate()` is generally used when graphing the slow moving counters.
+- `irate()` is used when graphing the high volatile counters.
+
+Source: https://medium.com/@kavyaprathyusha/rate-vs-irate-in-promql-a172e3d9c38f
+
 ### Examples
 
 CPU usage in percent
@@ -669,3 +676,4 @@ Wanna to go for a beer or do some work together? Just [book me](https://book-me.
 ## Sources
 
 - https://valyala.medium.com/promql-tutorial-for-beginners-9ab455142085
+- https://medium.com/@kavyaprathyusha/rate-vs-irate-in-promql-a172e3d9c38f
