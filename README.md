@@ -567,6 +567,12 @@ Fix DB & LB and see Alerts, Alert Manager & MailDev again.
 ./set-probe_success.sh lb 1
 ```
 
+### Jiralert
+
+Send alert to Jira
+
+https://github.com/prometheus-community/jiralert
+
 ## Grafana
 
 ### Grafana Screenshots
