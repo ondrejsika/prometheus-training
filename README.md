@@ -255,7 +255,7 @@ docker run --name node-exporter -d -p 9100:9100 --pid=host quay.io/prometheus/no
 Install on host using Docker:
 
 ```
-docker run --rm -d -p 9115:9115 --name blackbox_exporter prom/blackbox-exporter:master
+docker run --rm -d -p 9115:9115 --name blackbox_exporter -v $(pwd)/blackbox_exporter:/etc/blackbox_exporter prom/blackbox-exporter:master
 ```
 
 See: <http://prom.sikademo.com:9115/metrics>
