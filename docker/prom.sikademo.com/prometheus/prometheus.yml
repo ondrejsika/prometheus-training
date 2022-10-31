@@ -64,3 +64,21 @@ scrape_configs:
         target_label: instance
         regex: "(.+)(.sikademo.com)(:[0-9]+)?"
         replacement: "${1}"
+  - job_name: postgres
+    static_configs:
+      - targets:
+          - postgres.sikademo.com:9187
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
+  - job_name: mysql
+    static_configs:
+      - targets:
+          - mysql.sikademo.com:9104
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: "(.+)(.sikademo.com)(:[0-9]+)?"
+        replacement: "${1}"
