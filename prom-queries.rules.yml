@@ -6,6 +6,6 @@ groups:
       - record: mem_usage_perc
         expr: 100 * (node_memory_Active_bytes / on (instance) node_memory_MemTotal_bytes)
       - record: disk_usage_perc
-        expr: 100 * (node_filesystem_avail_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"})
+        expr: 100 * (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"}))
       - record: net_kbps
         expr: sum(rate(node_network_transmit_bytes_total{device=~"eth.*|enp.*"}[10m])) by (instance)
