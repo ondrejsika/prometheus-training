@@ -245,7 +245,7 @@ See: <http://prom.sikademo.com:9100/metrics>
 Example for Mac (without rootfs and host network)
 
 ```
-docker run --name node-exporter -d -p 9100 --pid=host quay.io/prometheus/node-exporter
+docker run --name node-exporter -d -p 9100:9100 --pid=host quay.io/prometheus/node-exporter
 ```
 
 ### Blackbox Exporter
