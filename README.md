@@ -265,6 +265,18 @@ Check status code 200 on website:
 - sika.io: <http://prom.sikademo.com:9115/probe?module=http_2xx&target=https://sika.io>
 - foo.int (not working): <http://prom.sikademo.com:9115/probe?module=http_2xx&target=https://foo.int>
 
+Run Prometheus with balackbox_exporter config:
+
+```
+prometheus --config.file=prom-balackbox.yml
+```
+
+or
+
+```
+./run-prometheus.sh prom-balackbox.yml
+```
+
 ### cAdvisor
 
 [source](https://github.com/google/cadvisor)
