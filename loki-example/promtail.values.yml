@@ -1,3 +1,7 @@
 config:
   clients:
     - url: http://loki-write.loki:3100/loki/api/v1/push
+  snippets:
+    extraRelabelConfigs:
+      - target_label: region
+        replacement: example-us-east-1
