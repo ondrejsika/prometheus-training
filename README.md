@@ -513,7 +513,7 @@ docker run --name random8082 -d -p 8082:80 ondrejsika/random-metrics
 Run Prometheus with rules configuration
 
 ```
-prometheus --config.file=03_prometheus.yml
+prometheus --config.file=prom-alert.yml
 ```
 
 See: <http://localhost:9090/alerts>
@@ -521,7 +521,7 @@ See: <http://localhost:9090/alerts>
 and in other tab run Alertmanager
 
 ```
-alertmanager --config.file 03_alertmanager.yml
+alertmanager --config.file am-basic.yml
 ```
 
 See: <http://localhost:9093>
