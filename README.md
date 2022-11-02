@@ -638,7 +638,7 @@ helm upgrade --install loki loki \
   --values loki-example/loki.values.yml
 ```
 
-If you don't have Grafana, you can istall it.
+If you don't have Grafana, you can install it.
 
 ```
 helm upgrade --install grafana grafana \
