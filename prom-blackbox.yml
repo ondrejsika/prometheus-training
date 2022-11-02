@@ -9,8 +9,8 @@ scrape_configs:
         - http_2xx
     static_configs:
       - targets:
-        - https://sika.io
-        - https://sika.int
+          - https://sika.io
+          - https://sika.int
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
