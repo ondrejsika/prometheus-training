@@ -291,13 +291,13 @@ Check status code 200 on website:
 Run Prometheus with balackbox_exporter config:
 
 ```
-prometheus --config.file=examples/prom-balackbox.yml
+prometheus --config.file=examples/prom-blackbox.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh examples/prom-balackbox.yml
+./run-prometheus.sh examples/prom-blackbox.yml
 ```
 
 ### cAdvisor
