@@ -173,13 +173,13 @@ A summary with a base metric name of `<basename>` exposes multiple time series d
 Run
 
 ```
-prometheus --config.file=prom-self-monitor.yml
+prometheus --config.file=examples/prom-self-monitor.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-self-monitor.yml
+./run-prometheus.sh examples/prom-self-monitor.yml
 ```
 
 See <http://127.0.0.1:9090>
