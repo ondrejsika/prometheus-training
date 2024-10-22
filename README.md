@@ -739,7 +739,7 @@ logcli query '{app="loggen-slow"} | pattern `<_> <_> <_> <level> <msg>` | line_f
 ### Thanos Example
 
 ```
-cd thanos-example
+cd examples/thanos
 ```
 
 Run multiple Prometheuses (in US & EU zone)
