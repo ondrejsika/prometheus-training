@@ -209,13 +209,13 @@ docker run --name metgen2 -d -p 8002:8000 sikalabs/slu:v0.80.0 slu metrics-gener
 Run Prometheus with those sample targets
 
 ```
-prometheus --config.file=prom-basic.yml
+prometheus --config.file=examples/prom-basic.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-basic.yml
+./run-prometheus.sh examples/prom-basic.yml
 ```
 
 See:
