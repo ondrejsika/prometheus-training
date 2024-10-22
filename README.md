@@ -223,6 +223,12 @@ See:
 - <http://127.0.0.1:9090>
 - http://127.0.0.1:9090/graph?g0.expr=sum(rate(example_request_duration_seconds_count%5B1m%5D))%20by%20(instance)&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
 
+### Prometheus Targets
+
+In Prometheus, targets are endpoints that expose metrics that Prometheus can scrape. Targets are typically applications or services that provide these metrics so that Prometheus can collect and store them for monitoring and alerting purposes.
+
+See: http://localhost:9090/targets
+
 ## Prometeheus Exporters
 
 ### What are Prometeheus Exporters?
