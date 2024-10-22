@@ -15,4 +15,4 @@ alerting:
             - "localhost:9093"
 
 rule_files:
-  - "04_prometheus.rules.yml"
+  - "prometheus.rules.yml"
