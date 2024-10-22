@@ -453,13 +453,13 @@ or
 ### Service Discovery using Consul
 
 ```
-prometheus --config.file=prom-sd-consul.yml
+prometheus --config.file=examples/prom-sd-consul.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-sd-consul.yml
+./run-prometheus.sh examples/prom-sd-consul.yml
 ```
 
 ## Push Gateway
