@@ -646,7 +646,7 @@ helm upgrade --install loki loki \
   --repo https://grafana.github.io/helm-charts \
   --namespace loki \
   --create-namespace \
-  --values loki-example/loki.values.yml
+  --values examples/loki/loki.values.yml
 ```
 
 If you don't have Grafana, you can install it.
@@ -656,7 +656,7 @@ helm upgrade --install grafana grafana \
   --repo https://grafana.github.io/helm-charts \
   --namespace grafana \
   --create-namespace \
-  --values loki-example/grafana.values.yml
+  --values examples/loki/grafana.values.yml
 ```
 
 ```
@@ -664,13 +664,13 @@ helm upgrade --install promtail promtail \
   --repo https://grafana.github.io/helm-charts \
   --namespace promtail \
   --create-namespace \
-  --values loki-example/promtail.values.yml
+  --values examples/loki/promtail.values.yml
 ```
 
 Run some demo logging
 
 ```
-kubectl apply -f loki-example/loggen.yml -f loki-example/loggen-fast.yml -f loki-example/loggen-slow.yml -f loki-example/loggen-json.yml
+kubectl apply -f examples/loki/loggen.yml -f examples/loki/loggen-fast.yml -f examples/loki/loggen-slow.yml -f examples/loki/loggen-json.yml
 ```
 
 Add Loki data source `http://loki-read.loki:3100`
