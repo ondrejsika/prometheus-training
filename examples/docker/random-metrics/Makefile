@@ -1,7 +1,7 @@
 all: build push
 
 build:
-	docker build -t ondrejsika/random-metrics .
+	docker build --platform linux/amd64 -t ondrejsika/random-metrics .
 
 push:
 	docker push ondrejsika/random-metrics
