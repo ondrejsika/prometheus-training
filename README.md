@@ -409,13 +409,13 @@ See: http://prom.sikademo.com:9090/graph?g0.expr=count%20without(cpu%2C%20mode)%
 ### Saved Queries
 
 ```
-prometheus --config.file=prom-queries.yml
+prometheus --config.file=examples/prom-queries.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-queries.yml
+./run-prometheus.sh examples/prom-queries.yml
 ```
 
 ## Service Discovery
