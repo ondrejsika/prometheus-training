@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   example-server-with-metrics:
     image: ondrejsika/example-server-with-metrics

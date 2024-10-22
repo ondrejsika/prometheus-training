@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   metrics-generator:
     image: sikalabs/slu:v0.34.0

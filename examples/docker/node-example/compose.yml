@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   node-exporter:
     image: quay.io/prometheus/node-exporter:latest
