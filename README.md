@@ -423,13 +423,13 @@ or
 ### Service Discovery using DNS
 
 ```
-prometheus --config.file=prom-sd-dns.yml
+prometheus --config.file=examples/prom-sd-dns.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-sd-dns.yml
+./run-prometheus.sh examples/prom-sd-dns.yml
 ```
 
 ### Service Discovery using file
