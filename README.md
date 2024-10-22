@@ -563,11 +563,11 @@ Use `./set-probe_success.sh` script to set everything up
 Run Prometheus & Alertmanager:
 
 ```
-prometheus --config.file=04_prometheus.yml
+prometheus --config.file=examples/04_prometheus.yml
 ```
 
 ```
-alertmanager --config.file 04_alertmanager.yml
+alertmanager --config.file examples/04_alertmanager.yml
 ```
 
 You can debug routes here: <https://prometheus.io/webtools/alerting/routing-tree-editor/>
