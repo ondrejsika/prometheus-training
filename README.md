@@ -434,20 +434,20 @@ or
 
 ### Service Discovery using file
 
-Copy `service-discovery-file.example.yml` to `service-discovery-file.yml`
+Copy `examples/service-discovery-file.example.yml` to `examples/service-discovery-file.yml`
 
 ```
-cp service-discovery-file.example.yml service-discovery-file.yml
+cp examples/service-discovery-file.example.yml examples/service-discovery-file.yml
 ```
 
 ```
-prometheus --config.file=prom-sd-file.yml
+prometheus --config.file=examples/prom-sd-file.yml
 ```
 
 or
 
 ```
-./run-prometheus.sh prom-sd-dns.yml
+./run-prometheus.sh examples/prom-sd-file.yml
 ```
 
 ### Service Discovery using Consul
