@@ -424,6 +424,28 @@ count without(cpu, mode) (node_cpu_seconds_total{mode="idle"})
 
 See: http://prom.sikademo.com:9090/graph?g0.expr=count%20without(cpu%2C%20mode)%20(node_cpu_seconds_total%7Bmode%3D%22idle%22%7D)%20&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
 
+### predict_linear
+
+`predict_linear` is a function to forecast future values of a time series based on its existing data points. It helps in estimating what the value of a given metric might be at a future time based on its trend over a specified period.
+
+Start filling the disk
+
+```
+slu w -s 1000 -- slu generate-files tree -c 10 -p .
+```
+
+and see the prediction
+
+```
+100 * (1 - (predict_linear(node_filesystem_avail_bytes{mountpoint="/"}[1m], 3600) / node_filesystem_size_bytes{mountpoint="/"}))
+```
+
+```
+predict_linear(node_filesystem_avail_bytes{mountpoint="/"}[1m], 60*60)
+```
+
+http://prom2.sikademo.com:9090/graph?g0.expr=100%20*%20(1%20-%20(predict_linear(node_filesystem_avail_bytes%7Bmountpoint%3D%22%2F%22%7D%5B1m%5D%2C%203600)%20%2F%20node_filesystem_size_bytes%7Bmountpoint%3D%22%2F%22%7D))&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=5m&g1.expr=predict_linear(node_filesystem_avail_bytes%7Bmountpoint%3D%22%2F%22%7D%5B1m%5D%2C%2060*60)&g1.tab=0&g1.stacked=0&g1.show_exemplars=0&g1.range_input=1h
+
 ### Saved Queries
 
 ```
