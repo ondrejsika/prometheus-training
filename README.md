@@ -156,6 +156,16 @@ A histogram with a base metric name of `<basename>` exposes multiple time series
 - the total sum of all observed values, exposed as `<basename>_sum`
 - the count of events that have been observed, exposed as `<basename>_count (identical to <basename>_bucket{le="+Inf"}` above)
 
+#### Summary
+
+Similar to a histogram, a summary samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
+
+A summary with a base metric name of `<basename>` exposes multiple time series during a scrape:
+
+- streaming φ-quantiles (0 ≤ φ ≤ 1) of observed events, exposed as `<basename>{quantile="<φ>"}`
+- the total sum of all observed values, exposed as `<basename>_sum`
+- the count of events that have been observed, exposed as `<basename>_count`
+
 ## Run Prometheus
 
 ### Test Prometheus with Simple Config
