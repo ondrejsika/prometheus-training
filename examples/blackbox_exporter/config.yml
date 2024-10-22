@@ -3,3 +3,4 @@ modules:
     prober: http
     http:
       preferred_ip_protocol: ip4
+      follow_redirects: true
