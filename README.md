@@ -46,9 +46,10 @@ Also feel free to propose improvements by creating issues.
 
 For sharing links & "secrets".
 
-- Slack - <https://sikapublic.slack.com/>
-- MS Teams
-- <https://sika.link/chat>
+- Campfire - https://sika.link/join-campfire
+- Slack - https://sikapublic.slack.com/
+- Microsoft Teams
+- https://sika.link/chat (tlk.io)
 
 <!-- BEGIN Install -->
 
