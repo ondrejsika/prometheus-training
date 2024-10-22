@@ -201,9 +201,9 @@ slu metrics-generator server -p 8002
 or in Docker
 
 ```
-docker run --name metgen0 -d -p 8000:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
-docker run --name metgen1 -d -p 8001:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
-docker run --name metgen2 -d -p 8002:8000 sikalabs/slu:v0.56.0-dev-1 slu metrics-generator server
+docker run --name metgen0 -d -p 8000:8000 sikalabs/slu:v0.80.0 slu metrics-generator server
+docker run --name metgen1 -d -p 8001:8000 sikalabs/slu:v0.80.0 slu metrics-generator server
+docker run --name metgen2 -d -p 8002:8000 sikalabs/slu:v0.80.0 slu metrics-generator server
 ```
 
 Run Prometheus with those sample targets
