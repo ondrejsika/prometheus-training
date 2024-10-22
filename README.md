@@ -259,6 +259,18 @@ Example for Mac (without rootfs and host network)
 docker run --name node-exporter -d -p 9100:9100 --pid=host quay.io/prometheus/node-exporter
 ```
 
+Run Prometheus with node_exporter scrape config:
+
+```
+prometheus --config.file=examples/prom-node-exporter.yml
+```
+
+or
+
+```
+./run-prometheus.sh examples/prom-node-exporter.yml
+```
+
 ### Blackbox Exporter
 
 [source](https://github.com/prometheus/blackbox_exporter)
