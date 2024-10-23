@@ -3,3 +3,4 @@ dashboards
 *.tfstate
 .infracost
 *.backup
+**/data/**/*.json
