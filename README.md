@@ -776,6 +776,10 @@ logcli query '{app="loggen-slow"} | pattern `<_> <_> <_> <level> <msg>` | line_f
 - https://thanos.io/
 - https://thanos.io/tip/thanos/quick-tutorial.md/
 
+## Thanos Architecture
+
+![Thanos Architecture](images/thanos_architecture.png)
+
 ### Thanos Example
 
 ```
