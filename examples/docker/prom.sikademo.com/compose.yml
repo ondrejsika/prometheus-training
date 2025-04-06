@@ -12,6 +12,14 @@ services:
       - --web.enable-lifecycle
     ports:
       - 9090:9090
+  blackbox-exporter:
+    image: prom/blackbox-exporter
+    ports:
+      - 9115:9115
+    command:
+      - --config.file=/etc/blackbox_exporter/config.yml
+    volumes:
+      - ./blackbox_exporter:/etc/blackbox_exporter
   grafana:
     image: grafana/grafana
     ports:
