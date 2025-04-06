@@ -1,6 +1,6 @@
 services:
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:${PROMETHEUS_IMAGE_TAG:-latest}
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
