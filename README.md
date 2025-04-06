@@ -395,7 +395,7 @@ Source: https://medium.com/@kavyaprathyusha/rate-vs-irate-in-promql-a172e3d9c38f
 CPU usage in percent
 
 ```
-100 * (1 - avg(rate(node_cpu_seconds_total{mode="idle"}[1m]))  by (instance))
+100 * (sum(rate(node_cpu_seconds_total{mode!="idle"}[1m])) by (instance))
 ```
 
 Memory usage in percent
