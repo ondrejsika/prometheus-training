@@ -9,3 +9,11 @@ groups:
         annotations:
           summary: "Prometheus job {{ $labels.job }} with {{ $labels.instance }} instance is down"
           description: "Job {{ $labels.job }} with {{ $labels.instance }} instance has been down for more than 20 seconds."
+      - alert: HighRequestRate
+        expr: rate(example_request_duration_seconds_count[1m]) > 15
+        for: 20s
+        labels:
+          level: high
+        annotations:
+          summary: "High request rate on {{ $labels.instance }}"
+          description: "{{ $labels.instance }} has a request rate above 15 requests per minute."
