@@ -665,6 +665,7 @@ My favourite dashboards:
 - Traefik - `5851` - https://grafana.com/grafana/dashboards/5851
 - Proxmox - `10347` - https://grafana.com/grafana/dashboards/10347
 - Consul - `10642` - https://grafana.com/grafana/dashboards/10642
+- Blackbox Exporter - `13659` - https://grafana.com/grafana/dashboards/13659-blackbox-exporter-http-prober/
 
 Kubernetes
 
