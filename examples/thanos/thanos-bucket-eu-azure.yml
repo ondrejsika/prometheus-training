@@ -1,0 +1,5 @@
+type: AZURE
+config:
+  storage_account: "CHANGEME"
+  storage_account_key: "CHANGEME"
+  container: "data-eu"
