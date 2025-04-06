@@ -2,7 +2,7 @@ groups:
   - name: my_vectors
     rules:
       - record: cpu_usage_perc
-        expr: 100 * (1 - avg(rate(node_cpu_seconds_total{mode="idle"}[1m]))  by (instance))
+        expr: 100 * (sum(rate(node_cpu_seconds_total{mode!="idle"}[1m])) by (instance))
       - record: mem_usage_perc
         expr: 100 * (node_memory_Active_bytes / on (instance) node_memory_MemTotal_bytes)
       - record: disk_usage_perc
