@@ -56,6 +56,13 @@ grafana:
       access: proxy
       isEnabled: true
       type: loki
+    - name: prometheus-prom
+      orgId: 1
+      uid: prometheus-prom
+      url: http://prom.sikademo.com
+      access: proxy
+      isEnabled: true
+      type: prometheus
 
   ingress:
     enabled: true
