@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_PASSWORD: pg
   postgres-exporter:
-    image: wrouesnel/postgres_exporter
+    image: quay.io/prometheuscommunity/postgres-exporter
     environment:
       DATA_SOURCE_NAME: postgresql://postgres:pg@postgres:5432/postgres?sslmode=disable
     ports:
