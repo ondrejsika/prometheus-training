@@ -89,7 +89,7 @@ grafana:
       client_id: "example_client_id"
       client_secret: "example_client_secret"
       role_attribute_path: >
-        contains(groups[*], 'argocd-admin') && 'Admin' || 'None'
+        contains(groups[*], 'grafana-admin') && 'Admin' || 'None'
     smtp:
       enabled: false
 
