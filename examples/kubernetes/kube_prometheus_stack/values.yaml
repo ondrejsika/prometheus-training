@@ -1,0 +1,97 @@
+kubeProxy:
+  enabled: false
+
+prometheus:
+  fullnameOverride: prometheus
+
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+    enableRemoteWriteReceiver: true
+    retention: 14d
+    retentionSize: 14GB
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          # storageClassName:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 15Gi
+
+  serviceMonitor:
+    selfMonitor: true
+
+prometheus-node-exporter:
+  prometheus:
+    monitor:
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_pod_node_name]
+          targetLabel: instance
+          action: replace
+  tolerations:
+    - effect: NoSchedule
+      operator: Exists
+    - effect: NoExecute
+      operator: Exists
+
+grafana:
+  enabled: true
+  adminPassword: asdfasdf
+  assertNoLeakedSecrets: false
+  defaultDashboardsEnabled: true
+  serviceMonitor:
+    selfMonitor: true
+  sidecar:
+    datasources:
+      enabled: true
+    dashboards:
+      enabled: true
+  additionalDataSources:
+    - name: loki
+      orgId: 1
+      uid: loki
+      url: http://loki-gateway.logging
+      access: proxy
+      isEnabled: true
+      type: loki
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - grafana.k8s.sikademo.com
+    tls:
+      - hosts:
+          - grafana.k8s.sikademo.com
+        secretName: grafana.k8s.sikademo.com-tls
+
+  grafana.ini:
+    server:
+      root_url: https://grafana.k8s.sikademo.com
+    users:
+      viewers_can_edit: true
+    auth.basic:
+      enabled: true
+    auth:
+      disable_login_form: false
+    auth.generic_oauth:
+      enabled: true
+      name: SikaLabs Training SSO
+      allow_sign_up: true
+      scopes: "openid profile email"
+      auth_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/auth"
+      token_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/token"
+      api_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/userinfo"
+      client_id: "example_client_id"
+      client_secret: "example_client_secret"
+      role_attribute_path: >
+        contains(groups[*], 'argocd-admin') && 'Admin' || 'None'
+    smtp:
+      enabled: false
+
+alertmanager:
+  enabled: true
