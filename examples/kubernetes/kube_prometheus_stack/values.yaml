@@ -63,6 +63,13 @@ grafana:
       access: proxy
       isEnabled: true
       type: prometheus
+    - name: prometheus-lab0
+      orgId: 1
+      uid: prometheus-lab0
+      url: http://lab0.sikademo.com:9090
+      access: proxy
+      isEnabled: true
+      type: prometheus
 
   ingress:
     enabled: true
