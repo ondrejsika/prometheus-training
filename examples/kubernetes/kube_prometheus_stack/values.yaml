@@ -59,7 +59,7 @@ grafana:
     - name: prometheus-prom
       orgId: 1
       uid: prometheus-prom
-      url: http://prom.sikademo.com
+      url: http://prom.sikademo.com:9090
       access: proxy
       isEnabled: true
       type: prometheus
