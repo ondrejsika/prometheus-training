@@ -123,3 +123,15 @@ grafana:
 
 alertmanager:
   enabled: true
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - alertmanager.k8s.sikademo.com
+    tls:
+      - hosts:
+          - alertmanager.k8s.sikademo.com
+        secretName: alertmanager.k8s.sikademo.com-tls
