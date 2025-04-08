@@ -89,7 +89,9 @@ grafana:
       client_id: "example_client_id"
       client_secret: "example_client_secret"
       role_attribute_path: >
-        contains(groups[*], 'grafana-admin') && 'Admin' || 'None'
+        contains(groups[*], 'grafana-admin') && 'Admin' ||
+        contains(groups[*], 'grafana-viewer') && 'Viewer' ||
+        'None'
     smtp:
       enabled: false
 
