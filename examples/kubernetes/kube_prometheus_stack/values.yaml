@@ -82,7 +82,7 @@ grafana:
       enabled: true
       name: SikaLabs Training SSO
       allow_sign_up: true
-      scopes: "openid profile email"
+      scopes: "openid profile email groups"
       auth_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/auth"
       token_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/token"
       api_url: "https://sso.sikalabs.com/realms/training/protocol/openid-connect/userinfo"
