@@ -4,6 +4,18 @@ kubeProxy:
 prometheus:
   fullnameOverride: prometheus
 
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - prometheus.k8s.sikademo.com
+    tls:
+      - hosts:
+          - prometheus.k8s.sikademo.com
+        secretName: prometheus.k8s.sikademo.com-tls
+
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
