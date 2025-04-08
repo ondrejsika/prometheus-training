@@ -851,6 +851,10 @@ Wanna to go for a beer or do some work together? Just [book me](https://book-me.
 
 ## Examples from Training
 
+### 2025-03-07
+
+- https://github.com/sika-training-examples/2025-03-08_example-server-with-metrics
+
 ### 2022-10-24 Solargis
 
 - https://github.com/sika-training-examples/2022-10-25-solargis-go-server-with-metrics
