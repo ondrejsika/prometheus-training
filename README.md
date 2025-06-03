@@ -379,6 +379,12 @@ node_network_receive_bytes_total{device=~"eth0|lo"}
 {__name__=~"node_network_(receive|transmit)_bytes_total"}
 ```
 
+Count
+
+```
+count(up == 1)
+```
+
 Offset
 
 ```
