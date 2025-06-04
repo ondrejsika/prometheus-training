@@ -30,27 +30,22 @@ var (
 	})
 )
 
-func init() {
-	// Register the metric with Prometheus
+func main() {
 	prometheus.MustRegister(unixTime)
 	prometheus.MustRegister(hour)
 	prometheus.MustRegister(minute)
 	prometheus.MustRegister(second)
-}
 
-func updateUnixTime() {
-	for {
-		currentTime := time.Now().UTC()
-		unixTime.Set(float64(currentTime.Unix()))
-		hour.Set(float64(currentTime.Hour()))
-		minute.Set(float64(currentTime.Minute()))
-		second.Set(float64(currentTime.Second()))
-		time.Sleep(1 * time.Second)
-	}
-}
-
-func main() {
-	go updateUnixTime()
+	go func() {
+		for {
+			currentTime := time.Now().UTC()
+			unixTime.Set(float64(currentTime.Unix()))
+			hour.Set(float64(currentTime.Hour()))
+			minute.Set(float64(currentTime.Minute()))
+			second.Set(float64(currentTime.Second()))
+			time.Sleep(1 * time.Second)
+		}
+	}()
 
 	http.Handle("/metrics", promhttp.Handler())
 
