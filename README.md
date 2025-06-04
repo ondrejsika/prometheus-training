@@ -1037,6 +1037,52 @@ Output
 }
 ```
 
+### Range Query
+
+The following endpoint evaluates a range query over a time range.
+
+Docs: <https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries>
+
+Query
+
+```
+up
+```
+
+In browser
+
+<http://localhost:9090/api/v1/query_range?query=up&start=2025-06-04T04:00:00Z&end=2025-06-04T05:00:00Z&step=600>
+
+Using `curl`
+
+```sh
+curl -sG http://localhost:9090/api/v1/query_range \
+  -d 'query=up' \
+  -d 'start=2025-06-04T05:00:00Z' \
+  -d 'end=2025-06-04T05:05:00Z' \
+  -d 'step=60' | jq
+```
+
+Query
+
+```
+rate(example_request_duration_seconds_count[5m])
+```
+
+In browser
+
+<http://localhost:9090/api/v1/query_range?query=rate(example_request_duration_seconds_count%5B5m%5D)&start=2025-06-04T05:00:00Z&end=2025-06-04T05:05:00Z&step=60>
+
+Using `curl`
+
+```sh
+curl -sG http://localhost:9090/api/v1/query_range \
+  -d 'query=rate(example_request_duration_seconds_count[5m])' \
+  -d 'start=2025-06-04T05:00:00Z' \
+  -d 'end=2025-06-04T05:05:00Z' \
+  -d 'step=60' | jq
+```
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
