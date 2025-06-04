@@ -880,6 +880,24 @@ using `curl`
 curl -G http://localhost:9090/api/v1/labels | jq
 ```
 
+### Get Label Values
+
+```
+<http://localhost:9090/api/v1/label/<label_name>/values>
+```
+
+Example in browser
+
+- <http://localhost:9090/api/v1/label/instance/values>
+- <http://localhost:9090/api/v1/label/code/values>
+
+using `curl`
+
+```sh
+curl -sG http://localhost:9090/api/v1/label/instance/values | jq
+curl -sG http://localhost:9090/api/v1/label/code/values | jq
+```
+
 ### List Targets
 
 in browser
