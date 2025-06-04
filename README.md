@@ -944,6 +944,12 @@ Output
 }
 ```
 
+with specific time
+
+```sh
+curl -sG http://localhost:9090/api/v1/query -d 'query=up' -d 'time=2025-06-04T05:00:00Z'
+```
+
 Query
 
 ```
