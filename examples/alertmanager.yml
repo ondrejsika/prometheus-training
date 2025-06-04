@@ -36,6 +36,10 @@ inhibit_rules:
     target_match:
       app: backend
   - source_match:
+      app: backend
+    target_match:
+      app: frontend
+  - source_match:
       app: lb
     target_match:
       app: frontend
