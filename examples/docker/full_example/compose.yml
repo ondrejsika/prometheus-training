@@ -4,6 +4,11 @@ services:
     command: slu metrics-generator server
     ports:
       - 18000:8000
+  example-time-exporter:
+    image: ghcr.io/sikalabs/slr:v0.19.0
+    command: slr time-exporter
+    ports:
+      - 18001:8000
   prometheus:
     image: prom/prometheus
     volumes:

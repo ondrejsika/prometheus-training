@@ -7,3 +7,8 @@ scrape_configs:
     static_configs:
       - targets:
           - metrics-generator:8000
+
+  - job_name: time-exporter
+    static_configs:
+      - targets:
+          - example-time-exporter:8000
