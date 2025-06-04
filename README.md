@@ -894,6 +894,10 @@ curl -G http://localhost:9090/api/v1/targets | jq
 
 ### Instant Query
 
+The following endpoint evaluates an instant query at a single point in time
+
+Docs: <https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries>
+
 Query
 
 ```
