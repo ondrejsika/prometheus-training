@@ -1,5 +1,5 @@
 groups:
-  - name: up
+  - name: alerts
     rules:
       - alert: Up
         expr: up == 0
