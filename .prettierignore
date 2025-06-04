@@ -4,3 +4,4 @@ dashboards
 .infracost
 *.backup
 **/data/**/*.json
+Pipfile.lock
