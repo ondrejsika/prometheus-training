@@ -883,7 +883,7 @@ curl -G http://localhost:9090/api/v1/labels | jq
 ### Get Label Values
 
 ```
-<http://localhost:9090/api/v1/label/<label_name>/values>
+http://localhost:9090/api/v1/label/<label_name>/values
 ```
 
 Example in browser
