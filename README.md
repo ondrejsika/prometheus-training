@@ -854,6 +854,8 @@ Run Prometheus Query connected to stores
 
 ## Prometheus API
 
+Docs: <https://prometheus.io/docs/prometheus/latest/querying/api/>
+
 ### List All Metrics
 
 in browser
