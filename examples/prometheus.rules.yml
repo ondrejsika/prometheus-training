@@ -1,8 +1,8 @@
 groups:
-  - name: up
+  - name: probe_success
     rules:
-      - alert: up
-        expr: probe_success{exported_instance="demo",exported_job="demo"} == 0
+      - alert: ProbeSuccess
+        expr: probe_success{instance="demo",job="demo"} == 0
         for: 20s
         labels:
           severity: critical
