@@ -12,3 +12,5 @@ scrape_configs:
     static_configs:
       - targets:
           - example-time-exporter:8000
+          - example-time-exporter-go:8000
+          - example-time-exporter-python:8000

@@ -9,6 +9,10 @@ services:
     command: slr time-exporter
     ports:
       - 18001:8000
+  example-time-exporter-go:
+    image: ttl.sh/example-time-exporter-go
+  example-time-exporter-python:
+    image: ttl.sh/example-time-exporter-python
   prometheus:
     image: prom/prometheus
     volumes:
