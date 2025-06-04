@@ -852,6 +852,48 @@ Run Prometheus Query connected to stores
 ./run-thanos-query-store.sh
 ```
 
+## Prometheus API
+
+### Instant Query
+
+<http://localhost:9090/api/v1/query?query=up>
+
+using `curl`
+
+```sh
+curl -s 'http://localhost:9090/api/v1/query?query=up'
+```
+
+or
+
+```sh
+curl -sG http://localhost:9090/api/v1/query -d 'query=up'
+```
+
+Output
+
+```json
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "up", // Metric name
+          "instance": "metrics-generator:8000",
+          "job": "example"
+        },
+        "value": [
+          1749011629.642, // Current timestamp in seconds
+          "1" // Value of the metric (1 means up)
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
