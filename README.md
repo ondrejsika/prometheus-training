@@ -854,6 +854,42 @@ Run Prometheus Query connected to stores
 
 ## Prometheus API
 
+### List All Metrics
+
+in browser
+
+<http://localhost:9090/api/v1/label/__name__/values>
+
+using `curl`
+
+```sh
+curl -G http://localhost:9090/api/v1/label/__name__/values | jq
+```
+
+### List All Labels
+
+in browser
+
+<http://localhost:9090/api/v1/labels>
+
+using `curl`
+
+```sh
+curl -G http://localhost:9090/api/v1/labels | jq
+```
+
+### List Targets
+
+in browser
+
+<http://localhost:9090/api/v1/targets>
+
+using `curl`
+
+```sh
+curl -G http://localhost:9090/api/v1/targets | jq
+```
+
 ### Instant Query
 
 Query
