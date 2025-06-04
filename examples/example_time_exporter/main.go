@@ -11,7 +11,16 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
+var VERSION = "dev"
+
 var (
+	info = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name: "example_info",
+			Help: "Information about the time exporter",
+		},
+		[]string{"version", "start_time", "implementation"},
+	)
 	unixTime = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name: "example_unix_time",
 		Help: "Current Unix timestamp",
@@ -31,10 +40,13 @@ var (
 )
 
 func main() {
+	prometheus.MustRegister(info)
 	prometheus.MustRegister(unixTime)
 	prometheus.MustRegister(hour)
 	prometheus.MustRegister(minute)
 	prometheus.MustRegister(second)
+
+	info.WithLabelValues(VERSION, time.Now().UTC().Format(time.RFC3339), "go").Set(1)
 
 	go func() {
 		for {
