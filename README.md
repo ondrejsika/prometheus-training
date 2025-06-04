@@ -856,6 +856,14 @@ Run Prometheus Query connected to stores
 
 ### Instant Query
 
+Query
+
+```
+up
+```
+
+In browser
+
 <http://localhost:9090/api/v1/query?query=up>
 
 using `curl`
@@ -888,6 +896,75 @@ Output
           1749011629.642, // Current timestamp in seconds
           "1" // Value of the metric (1 means up)
         ]
+      }
+    ]
+  }
+}
+```
+
+Query
+
+```
+rate(example_request_duration_seconds_count[5m])
+```
+
+In browser
+
+<http://localhost:9090/api/v1/query?query=rate(example_request_duration_seconds_count%5B5m%5D)>
+
+using `curl`
+
+```sh
+curl -sG http://localhost:9090/api/v1/query -d 'query=rate(example_request_duration_seconds_count[5m])'
+```
+
+Output
+
+```json
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "instance": "metrics-generator:8000",
+          "job": "example",
+          "method": "GET",
+          "path": "/bar",
+          "status_code": "200"
+        },
+        "value": [1749012411.637, "20.34736842105263"]
+      },
+      {
+        "metric": {
+          "instance": "metrics-generator:8000",
+          "job": "example",
+          "method": "GET",
+          "path": "/baz",
+          "status_code": "200"
+        },
+        "value": [1749012411.637, "11.133333333333333"]
+      },
+      {
+        "metric": {
+          "instance": "metrics-generator:8000",
+          "job": "example",
+          "method": "GET",
+          "path": "/baz",
+          "status_code": "502"
+        },
+        "value": [1749012411.637, "1.0035087719298244"]
+      },
+      {
+        "metric": {
+          "instance": "metrics-generator:8000",
+          "job": "example",
+          "method": "GET",
+          "path": "/foo",
+          "status_code": "200"
+        },
+        "value": [1749012411.637, "9.898245614035087"]
       }
     ]
   }
