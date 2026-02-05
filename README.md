@@ -1,4 +1,4 @@
-[Ondrej Sika (sika.io)](https://which.sika.io) | <ondrej@sika.io> | [course ->](#course) | [install ->](#install-prometheus-locally)
+[Ondrej Sika (sika.io)](https://which.sika.io) | <ondrej@sika.io> | [course ->](#course) | [install ->](#install-prometheus-locally) | [**Skoleni Prometheus**](https://ondrej-sika.cz/skoleni/prometheus/) 🚀💻
 
 ![](images/prometheus_github.svg)
 
