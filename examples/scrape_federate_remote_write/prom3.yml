@@ -1,0 +1,4 @@
+global:
+  external_labels:
+    prom: prom3
+scrape_configs: []

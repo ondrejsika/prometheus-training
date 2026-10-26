@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+  external_labels:
+    prom: prom2
+scrape_configs:
+  - job_name: federate-prom1
+    honor_labels: true
+    metrics_path: /federate
+    params:
+      "match[]":
+        - '{job="myapp"}'
+    static_configs:
+      - targets: ["127.0.0.1:9091"]
+remote_write:
+  - url: http://127.0.0.1:9093/api/v1/write
